@@ -20,6 +20,8 @@ To use the library in your projects:
 * **Ring Programming Language**
 * Good experience in general coding (Understanding scopes, functions, variables, and comments).
 
+> **📱 Note:** All Android applications have been tested using the **Samsung Galaxy S25 Ultra**.
+
 ## 📥 Installation
 
 ### Option 1: Using RingPM (Recommended)
