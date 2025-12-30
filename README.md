@@ -4,20 +4,20 @@
 
 # RingQML Extension
 
-A simple-to-use library used to interact with QML (Qt Meta-object Language) using the Ring programming language.
+A simple-to-use library used to interact with QML (Qt Meta-object Language) using the [Ring programming language](https://ring-lang.net/).
 
 ## 📋 Requirements
 
 ### Build Requirements
 To build the extension from source, you need:
-* **Ring Programming Language**
+* **[Ring Programming Language](https://ring-lang.net/)**
 * **Qt 5.15**
 * **MSVC Compiler**
 * Good experience in C/C++ and Operating Systems.
 
 ### Usage Requirements
 To use the library in your projects:
-* **Ring Programming Language**
+* **[Ring Programming Language](https://ring-lang.net/)**
 * Good experience in general coding (Understanding scopes, functions, variables, and comments).
 
 > **📱 Note:** All Android applications have been tested using the **Samsung Galaxy S25 Ultra**.
