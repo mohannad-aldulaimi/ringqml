@@ -84,7 +84,7 @@ Here is a simple example showing how to load the library, create a Qt Applicatio
 
 ## 📂 File Structure
 
-* **lib**: Contains `*.ring` files (Ring library).
+* **libraries/RingQML**: Contains `*.ring` files (Ring library).
 * **src**: Contains C/C++ and Qt project files for the extension.
 * **tests**: Contains simple `*.ring` files for testing.
 * **projects**: Contains applications developed using the RingQML extension.
