@@ -2,7 +2,8 @@
 <p align="center">
   <img src="../RingQML.jpg" width="40%" style="border-radius: 10%;">
 </p>
-This directory contains examples and test scripts demonstrating the integration between the **Ring** programming language and **Qt/QML** via the RingQML library. The tests cover content loading, event handling, component creation, and state management.
+
+This directory contains examples and test scripts demonstrating the integration between the `Ring programming language` and `Qt/QML` via the `RingQML` library. The tests cover content loading, event handling, component creation, and state management.
 
 ## Test Files Overview
 
