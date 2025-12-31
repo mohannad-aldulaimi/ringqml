@@ -102,8 +102,14 @@ class ringQML
 		cQML =trimContent(cQML)
 		pNewQQuickItem=createnewcomponent(pEngine,cComponentName ,cQml)
 		return new ringQMLComponenet(pNewQQuickItem)
-		
-
+	/*
+		Name : getimage
+		Usage : getimage(nId)
+		Params : nId (number) <- id of image that returned from shareImage(QPixmap) function
+		return : String (Image Path in Ring Provider)
+	*/	
+	func getimage nId
+		return "image://RingProvider/"+nId
 	/*
 		Name : loadContent
 		Usage : loadContent(cQmlCode)
