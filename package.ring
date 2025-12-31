@@ -31,6 +31,7 @@ aPackageInfo = [
 		"libraries/RingQML/globals.ring",
 		"libraries/RingQML/ringQML.ring",
 		"libraries/RingQML/ringQmlRoot.ring",
+		"libraries/RingQML/ringQMLObject.ring",
 		// Samples
 		"samples/UsingRingQML/Hello_world.ring"
 	],
