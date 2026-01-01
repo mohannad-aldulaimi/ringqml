@@ -4,9 +4,9 @@ A comprehensive, cross-platform prayer times application built using the **Ring*
 
 ## 📸 Screenshots
 
-<img src="screenshots/1.jpg" width="20%" /> | <img src="screenshots/3.jpg" width="20%" />
+<img src="https://github.com/mohannad-aldulaimi/praytimes/raw/main/screenshots/1.jpg" width="20%" /> | <img src="https://github.com/mohannad-aldulaimi/praytimes/raw/main/screenshots/3.jpg" width="20%" />
 
-|<img src="screenshots/2.jpg" width="40%" alt="Landscape Mode" />|
+|<img src="https://github.com/mohannad-aldulaimi/praytimes/raw/main/screenshots/2.jpg" width="40%" alt="Landscape Mode" />|
 
 ## 🌟 Features
 
@@ -44,13 +44,13 @@ A comprehensive, cross-platform prayer times application built using the **Ring*
 
 * **Canvas API:** Used for drawing custom shapes like the Minute Circle.
 
-## ⚙️ How to Run
-
-1. Ensure you have **Ring** and the **RingQML** extension installed on your system.
-
-2. Verify the `images/` folder contains your background images.
-
-3. Run the application using the following command:
-
+## insitall :
 ```bash
-ring pray_times.ring
+ringpm install praytimes from mohannad-aldulaimi
+```
+
+## run :
+3. Run the application using the following command:
+```bash
+ringpm run praytimes
+```
