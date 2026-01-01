@@ -33,7 +33,9 @@ aPackageInfo = [
 		"libraries/RingQML/ringQmlRoot.ring",
 		"libraries/RingQML/ringQMLObject.ring",
 		// Samples
-		"samples/UsingRingQML/Hello_world.ring"
+		"samples/UsingRingQML/Hello_world.ring",
+		// Applications
+		"applications/RingQML/pray_time/README.md"
 	],
 	:windowsfiles = 	[
 
