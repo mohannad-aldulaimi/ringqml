@@ -372,10 +372,9 @@
 	    QString fileName = nameStr + ".qml";
 	    QString fullPath = tempDir.filePath(fileName);
 	    QFile file(fullPath);
-	    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-	        QTextStream out(&file);
-	        out.setCodec("UTF-8");
-	        out << qmlCode;
+	    if (file.open(QIODevice::WriteOnly)) {
+	        // no need to UTF-8 here the input char* is already in this encoding format.
+	        file.write(qmlCode);
 	        file.close();
 	    } else {
 	        return nullptr;
