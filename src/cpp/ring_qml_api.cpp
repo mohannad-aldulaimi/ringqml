@@ -278,7 +278,25 @@ RING_FUNC(ring_exposeQWidgetToQML) {
 
     engine->rootContext()->setContextProperty(name, widget);
 }
+RING_FUNC(ring_grabItemSnapshot){
+    QImage* pImage;
+    QQuickItem* rootItem;
+    char * cObjectName;
+    if (RING_API_PARACOUNT != 2) {
+        RING_API_ERROR(RING_API_BADPARACOUNT);
+        return;
+    }
+    RING_API_IGNORECPOINTERTYPE;
+    if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+    rootItem = (QQuickItem*) RING_API_GETCPOINTER(1, "QQuickItem");
+    cObjectName = RING_API_GETSTRING(2);
 
+    pImage=grabItemSnapshot(rootItem,cObjectName);
+    RING_API_RETCPOINTER(pImage,"QImage");
+}
 // --- Library Initialization ---
 
 void ringQML_initLib(RingState *pRingState) {
@@ -295,6 +313,7 @@ void ringQML_initLib(RingState *pRingState) {
     RING_API_REGISTER("createnewcomponent", ring_createNewComponent);
     RING_API_REGISTER("exposeimagetoqml", ring_exposePixmapToQML);
     RING_API_REGISTER("getqmldefinedfunctions",ring_getQmlDefinedFunctions);
+    RING_API_REGISTER("ringqml_grabitemsnapshot",ring_grabItemSnapshot);
 
 }
 
