@@ -26,10 +26,16 @@
 #include <QJsonArray>
 #include <QSet>
 #include <QString>
+#include <QQuickItem>
+#include <QImage>
 //<IncludeEnd>
 extern "C" {
     #include "ring.h"
 }
+/**
+ * Take a SnapShot for QML Item using its objecName.
+ */
+QImage* grabItemSnapshot(QQuickItem* rootItem, const char* objectName);
 
 /**
  * Converts a Ring List (and nested lists) into a QVariant.

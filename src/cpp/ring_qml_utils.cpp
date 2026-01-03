@@ -19,8 +19,43 @@
 //<IncludeStart>
 #include <QDebug>
 #include <QMetaProperty>
+#include <QQuickItem>
+#include <QQuickItemGrabResult>
+#include <QEventLoop>
+#include <QSharedPointer>
+#include <QImage>
 //<IncludeEnd>
+QImage* grabItemSnapshot(QQuickItem* rootItem, const char* objectName){
+    // 1. Safety Checks
+    if (!rootItem) {
+        qWarning("Snapshot Error: rootItem is NULL");
+        return nullptr;
+    }
 
+    // 2. Find the child item by name
+    // (If objectName is empty/null, we assume you want to grab the rootItem itself)
+    QQuickItem* target = rootItem;
+    if (objectName && objectName[0] != '\0') {
+        target = rootItem->findChild<QQuickItem*>(QString::fromUtf8(objectName));
+    }
+
+    if (!target) {
+        qWarning("Snapshot Error: Could not find item '%s'", objectName);
+        return nullptr;
+    }
+
+    // 3. Start the Grab
+    auto grabResult = target->grabToImage();
+    if (!grabResult) return nullptr;
+
+    // 4. Wait for it to finish (Synchronous block)
+    QEventLoop loop;
+    QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, &loop, &QEventLoop::quit);
+    loop.exec(); 
+
+    // 5. Return the image (Caller owns this pointer!)
+    return new QImage(grabResult->image());
+}
 QVariant ringListToQVariant(List* pList) {
     if (!pList) {
         return QVariant(QVariantList());
