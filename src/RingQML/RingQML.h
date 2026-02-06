@@ -36,6 +36,8 @@
 #include <QMetaProperty>
 #include <QQuickItemGrabResult>
 #include <QSharedPointer>
+#include <QIcon>
+#include <QGuiApplication>
 
 extern "C" { 
 	#include "ring.h"

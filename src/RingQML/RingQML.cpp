@@ -36,6 +36,8 @@
 #include <QMetaProperty>
 #include <QQuickItemGrabResult>
 #include <QSharedPointer>
+#include <QIcon>
+#include <QGuiApplication>
 #include "RingQML.h"
 
 
@@ -1058,6 +1060,24 @@
 	    pImage=grabItemSnapshot(rootItem,cObjectName);
 	    RING_API_RETCPOINTER(pImage,"QImage");
 	}
+	RING_FUNC(ring_setQMLAppIconForqAppInstance){
+	    char * cIcon;
+	    if (RING_API_PARACOUNT != 1) {
+	        RING_API_ERROR(RING_API_BADPARACOUNT);
+	        return;
+	    }
+	    if (!RING_API_ISSTRING(1)){
+	        RING_API_ERROR(RING_API_BADPARATYPE);
+	        return;
+	    }
+	    cIcon = RING_API_GETSTRING(1);
+	    if(qApp){
+	        qApp->setWindowIcon(QIcon(cIcon));
+	        RING_API_RETNUMBER(1.0);
+	        return;
+	    }
+	    RING_API_RETNUMBER(0.0);
+	}
 	// --- Library Initialization ---
 	void ringQML_initLib(RingState *pRingState) {
 	    RING_API_REGISTER("initqmlclass", ring_InitClass);
@@ -1074,6 +1094,7 @@
 	    RING_API_REGISTER("exposeimagetoqml", ring_exposePixmapToQML);
 	    RING_API_REGISTER("getqmldefinedfunctions",ring_getQmlDefinedFunctions);
 	    RING_API_REGISTER("ringqml_grabitemsnapshot",ring_grabItemSnapshot);
+	    RING_API_REGISTER("setqmlappiconforqappinstance",ring_setQMLAppIconForqAppInstance);
 	}
 	// Desktop Only we use RING_LIBINIT
 	#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS) && !defined(Q_OS_WASM)
