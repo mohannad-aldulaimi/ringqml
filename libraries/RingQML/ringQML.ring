@@ -35,7 +35,6 @@ class ringQML
 	# Logicals
 		l_reapeateCallLoadContent=0
 		l_isNewComponenetCreated=0
-		l_useQt6 = 0
 	/*
 		Name : INIT
 		Usage : new ringQML( parent )
@@ -187,14 +186,3 @@ class ringQML
 			ok
 		ok
 		return 0
-
-	/*
-		Name : setl_useQt6
-		Usage : setl_useQt6(lState)
-		Params : lState (Number)
-	*/
-	func setl_useQt6 lState 
-		if ! isnumber(lState) return raise("RingQml Error : l_useQt6 Flag must be number (0 or 1)") ok
-		l_useQt6 = lState
-        
-		
