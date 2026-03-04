@@ -15,7 +15,6 @@
 #include <QQuickImageProvider>
 #include <QPixmap>
 #include <QMap>
-#include <QQuickWidget>
 #include <QQuickView>
 #include <QQmlApplicationEngine>
 #include <QQuickItem>
@@ -255,15 +254,6 @@
 	    Ringbridge = new RingQML(pVm, qmlEngine);
 	    qmlEngine->rootContext()->setContextProperty("Ring", Ringbridge);
 	}
-	void setQuickColorLikeWindow(QQuickWidget* quickWidget) {
-	    if (!quickWidget) return;
-	    quickWidget->setClearColor(QColor(245, 236, 230)); // Default Ring beige
-	    quickWidget->setStyleSheet("QQuickWidget { background: transparent; border: none; }");
-	    if (QWidget* parent = quickWidget->parentWidget()) {
-	        parent->setProperty("quickContainer", true);
-	        parent->setStyleSheet("[quickContainer=\"true\"] { background-color: #f5ece6; border: none; }");
-	    }
-	}
 	// --- Common Helper for Async Loading ---
 	// Waits for a QObject (Loader or Widget) to reach a specific property state
 	void waitForStatus(QObject* object, const char* signal, const char* propName, int targetValue) {
@@ -311,53 +301,6 @@
 	        }
 	    }
 	    delete hostObject;
-	    return nullptr;
-	}
-	QQuickItem* loadQmlFromContentWidget(QQuickWidget *widget, const char* qmlContent) {
-	    if (!widget || !qmlContent) return nullptr;
-	    widget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-	    QQmlEngine *engine = widget->engine();
-	    // 1. Create User Component
-	    QQmlComponent *userComponent = new QQmlComponent(engine, widget);
-	    QUrl baseUrl;
-	    #if defined(Q_OS_WIN)
-	        QString currentPath = QDir::currentPath();
-	        baseUrl = QUrl::fromLocalFile(currentPath.endsWith('/') ? currentPath : currentPath + '/');
-	        engine->addImportPath(currentPath);
-	    #else
-	        baseUrl = QUrl("qrc:/");
-	    #endif
-	    userComponent->setData(qmlContent, baseUrl.resolved(QUrl("code.qml")));
-	    if (userComponent->isError()) {
-	        qWarning() << "RingQML Component Error:" << userComponent->errorString();
-	        delete userComponent;
-	        return nullptr;
-	    }
-	    // 2. Set Context Property
-	    engine->rootContext()->setContextProperty("dynamicUserComponentLoaderContent", QVariant::fromValue(userComponent));
-	    // 3. Load Host QML via Source
-	    const char* hostQml = "import QtQuick 2.0; import QtQuick.Controls 2.0; Rectangle { color: 'transparent'; Loader { anchors.fill: parent; sourceComponent: dynamicUserComponentLoaderContent; focus: true } }";
-	    // Data URL for the host
-	    QByteArray hostData = QByteArray(hostQml);
-	    QUrl hostUrl("data:text/qml;charset=utf-8," + hostData.toPercentEncoding());
-	    widget->setSource(hostUrl);
-	    // 4. Wait for Widget
-	    if (widget->status() != QQuickWidget::Ready) {
-	        QEventLoop loop;
-	        QObject::connect(widget, SIGNAL(statusChanged(QQuickWidget::Status)), &loop, SLOT(quit()));
-	        loop.exec();
-	    }
-	    if (widget->status() != QQuickWidget::Ready) return nullptr;
-	    // 5. Find the inner loader and return its item
-	    QQuickItem* root = widget->rootObject();
-	    if (root) {
-	        // We know the structure is Rect -> Loader
-	        QQuickItem* loader = root->childItems().isEmpty() ? nullptr : root->childItems().first();
-	        if (loader) {
-	             waitForStatus(loader, "2statusChanged()", "status", 1);
-	             return loader->property("item").value<QQuickItem*>();
-	        }
-	    }
 	    return nullptr;
 	}
 	QQuickItem* loadQmlFromContentEngine(QQmlApplicationEngine *engine, const char* qmlContent) {
@@ -885,19 +828,6 @@
 	    SetRingEventForCallFromQML((VM*)pPointer, qmlEngine);
 	}
 	RING_FUNC(ring_loadQmlFromContentWidget) {
-	    QQuickWidget* widget;
-	    const char* qml;
-	    if (RING_API_PARACOUNT != 2) {
-	        RING_API_ERROR(RING_API_BADPARACOUNT);
-	        return;
-	    }
-	    if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2)) {
-	        RING_API_ERROR(RING_API_BADPARATYPE);
-	        return;
-	    }
-	    widget = (QQuickWidget*)RING_API_GETCPOINTER(1, "QQuickWidget");
-	    qml = RING_API_GETSTRING(2);
-	    RING_API_RETCPOINTER(loadQmlFromContentWidget(widget, qml), "QQuickItem");
 	}
 	RING_FUNC(ring_loadQmlFromContentView) {
 	    QQuickView* view;

@@ -28,6 +28,7 @@ void SetRingEventForCallFromQML(VM *pVm, QQmlEngine* qmlEngine) {
     qmlEngine->rootContext()->setContextProperty("Ring", Ringbridge);
 }
 
+//<SingleFileIgnoreThisStart>
 void setQuickColorLikeWindow(QQuickWidget* quickWidget) {
     if (!quickWidget) return;
     quickWidget->setClearColor(QColor(245, 236, 230)); // Default Ring beige
@@ -38,6 +39,7 @@ void setQuickColorLikeWindow(QQuickWidget* quickWidget) {
         parent->setStyleSheet("[quickContainer=\"true\"] { background-color: #f5ece6; border: none; }");
     }
 }
+//<SingleFileIgnoreThisEnd>
 
 // --- Common Helper for Async Loading ---
 // Waits for a QObject (Loader or Widget) to reach a specific property state
@@ -102,6 +104,7 @@ QQuickItem* loadQmlFromContentView(QQuickView *view, const char* qmlContent) {
     return nullptr;
 }
 
+//<SingleFileIgnoreThisStart>
 QQuickItem* loadQmlFromContentWidget(QQuickWidget *widget, const char* qmlContent) {
     if (!widget || !qmlContent) return nullptr;
 
@@ -161,6 +164,7 @@ QQuickItem* loadQmlFromContentWidget(QQuickWidget *widget, const char* qmlConten
     
     return nullptr;
 }
+//<SingleFileIgnoreThisEnd>
 
 QQuickItem* loadQmlFromContentEngine(QQmlApplicationEngine *engine, const char* qmlContent) {
     if (!engine || !qmlContent) return nullptr;

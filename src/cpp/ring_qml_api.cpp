@@ -38,6 +38,7 @@ RING_FUNC(ring_InitClass) {
 }
 
 RING_FUNC(ring_loadQmlFromContentWidget) {
+//<SingleFileIgnoreThisStart>
     QQuickWidget* widget;
     const char* qml;
 
@@ -55,6 +56,7 @@ RING_FUNC(ring_loadQmlFromContentWidget) {
     qml = RING_API_GETSTRING(2);
 
     RING_API_RETCPOINTER(loadQmlFromContentWidget(widget, qml), "QQuickItem");
+//<SingleFileIgnoreThisEnd>
 }
 
 RING_FUNC(ring_loadQmlFromContentView) {
@@ -336,7 +338,6 @@ void ringQML_initLib(RingState *pRingState) {
     RING_API_REGISTER("getqmldefinedfunctions",ring_getQmlDefinedFunctions);
     RING_API_REGISTER("ringqml_grabitemsnapshot",ring_grabItemSnapshot);
     RING_API_REGISTER("setqmlappiconforqappinstance",ring_setQMLAppIconForqAppInstance);
-    
 }
 
 // Desktop Only we use RING_LIBINIT

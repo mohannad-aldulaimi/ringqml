@@ -65,6 +65,7 @@ writeFiles()
 
 func updateBeforWrite
 	cHeaderFileContent= 'extern "C" { '+nl+tab+'#include "ring.h"'+nl+'}'+cHeaderFileContent
+	
 	cHeaderFileContent=cHeader+nl+list2str(aIncluded_modules)+nl+nl+cHeaderFileContent
 	cSourceFileContent=cHeader+nl+list2str(aIncluded_modules)+nl+'#include "RingQML.h"'+nl+nl+cSourceFileContent
 
@@ -87,6 +88,7 @@ func StartAnaLasingFile(cFileName,cFileType)
 	aContent = split(read(cFileName),nl)
 	l_FileStart  = 0
 	l_IncludeStart  = 0
+	l_single_file_ignore_this=0
 	if cFileType = :Header
 		cHeaderFileContent+= nl+nl+'// File : '+justfileName(cFileName)+nl
 	but cFileType = :Source
@@ -108,25 +110,34 @@ func StartAnaLasingFile(cFileName,cFileType)
 		but startsWith(line , "//<IncludeEnd>")
 				l_IncludeStart=0
 				continue
+		but startsWith(line , "//<SingleFileIgnoreThisStart>")
+				l_single_file_ignore_this=1
+				continue
+		but startsWith(line , "//<SingleFileIgnoreThisEnd>")
+				l_single_file_ignore_this=0
+				continue
 		ok 
 
 		if l_FileStart
 			if l_IncludeStart
 				if ! find(aIncluded_modules,line )
-					aIncluded_modules+line 
+					if ! substr(line,"#include <QQuickWidget>" )
+						aIncluded_modules+line 
+					ok
 				ok
 				continue
 			ok 
 			if ! l_IncludeStart and startsWith(trim(line),"#include")
 				continue
 			ok
+			if l_single_file_ignore_this
+				continue
+			ok
 			if cFileType = :Header
 				cHeaderFileContent+= tab +line+nl
 			but cFileType = :Source
 				cSourceFileContent+= tab+line+nl
-
 			ok
-
 		ok
 
 	next 
