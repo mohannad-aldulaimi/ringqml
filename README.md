@@ -82,6 +82,25 @@ Here is a simple example showing how to load the library, create a Qt Applicatio
     "</span>
 </pre>
 
+### Using Qt 6 with RingQML
+
+Because Ring defaults to Qt 5.15, you must download your preferred Qt 6 version yourself (e.g., Qt 6.10.2). You can then use the `useQt6(path)` function to point the library to your Qt 6 compiler path, and it will handle the rest:
+
+<pre style="background-color: #111; padding: 10px; border-radius: 5px; overflow-x: auto; color: #fff;">
+<span style="color: #0b59ac;">load</span> <span style="color: #7a5004;">'ringQML.ring'</span>
+<span style="color: #0b59ac;">load</span> <span style="color: #7a5004;">'ring_qt_qml.ring'</span>
+
+<span style="color: #888; font-style: italic;">// Point to your custom Qt 6 installation</span>
+<span style="color: #f07fe0; font-style: italic;">useQt6</span><span style="color: #fff;">(</span><span style="color: #7a5004;">"C:\Qt\6.10.2\msvc2022_64"</span><span style="color: #fff;">)</span>
+
+<span style="color: #0b59ac;">new</span> qApp <span style="color: #ffff00;">{</span>
+    oQML = <span style="color: #0b59ac;">new</span> <span style="color: #ffff00;">RingQML</span><span style="color: #fff;">(</span><span style="color: #fff;">NULL</span><span style="color: #fff;">)</span> <span style="color: #ffff00;">{</span>
+        <span style="color: #f07fe0; font-style: italic;">loadContent</span><span style="color: #fff;">(</span><span style="color: #f07fe0; font-style: italic;">getQt6SimpleCodeContent</span><span style="color: #fff;">())</span>
+    <span style="color: #ffff00;">}</span>
+    <span style="color: #f07fe0; font-style: italic;">exec</span><span style="color: #fff;">()</span>
+<span style="color: #ffff00;">}</span>
+</pre>
+
 ## 📚 Documentation
 
 Detailed documentation and guides on how to use the library features are available in the `DOCS` folder:
