@@ -6,7 +6,7 @@ func useQt6 cQt6Path
 		raise("Please load ring_qt_qml.ring first, using: load 'ring_qt_qml.ring'")
 	ok
 	loadlib(exefolder()+"ring_qt_qml.dll")
-    
+    G_RINGQML_cQT6FolderPath = cQt6Path
 
     cDllPath = exefolder() + 'RingQML6.dll'
     

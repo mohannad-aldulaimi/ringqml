@@ -52,7 +52,7 @@ class ringQML
 		ok 
 		nQMLLoadingType=getQMLLoadingType(pParent[2])
 		pStringListPaths = new QStringList()
-		pStringListPaths.append("C:\Qt\6.10.2\msvc2022_64\qml")
+		pStringListPaths.append(G_RINGQML_cQT6FolderPath+"\qml")
 		qQMLEngine_setImportPathList(pEngine, pStringListPaths.pObject)
 		initqmlclass(pEngine)
 		return self 
