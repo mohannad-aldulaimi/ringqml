@@ -1,0 +1,10 @@
+<comment>
+				Module (qml)
+</comment>
+
+<filter> sysget("RINGQT_NO_QQMLERROR") = ""
+<loadfile> qml/qqmlerror.cf
+</filter>
+<filter> sysget("RINGQT_NO_QQMLENGINE") = ""
+<loadfile> qml/qqmlengine.cf
+</filter>

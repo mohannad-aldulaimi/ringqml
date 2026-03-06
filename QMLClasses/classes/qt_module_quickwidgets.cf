@@ -1,0 +1,7 @@
+<comment>
+				Module (quickwidgets)
+</comment>
+
+<filter> sysget("RINGQT_NO_QQUICKWIDGET") = ""
+<loadfile> quick/qquickwidget.cf
+</filter>

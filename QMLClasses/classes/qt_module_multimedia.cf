@@ -1,0 +1,22 @@
+<comment>
+				Module (multimedia)
+</comment>
+
+<filter> sysget("RINGQT_NO_QMEDIAPLAYER") = ""
+<loadfile> multimedia/qmediaplayer.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMEDIAPLAYLIST") = ""
+<loadfile> multimedia/qmediaplaylist.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCAMERA") = ""
+<loadfile> multimedia/qcamera.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCAMERAIMAGECAPTURE") = ""
+<loadfile> multimedia/qcameraimagecapture.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMEDIAOBJECT") = ""
+<loadfile> multimedia/qmediaobject.cf
+</filter>
+<filter> sysget("RINGQT_NO_QAUDIOOUTPUT") = ""
+<loadfile> multimedia/qaudiooutput.cf
+</filter>

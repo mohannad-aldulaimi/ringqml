@@ -1,0 +1,109 @@
+<comment>
+				Module (widgets) - Graphics View Framework
+</comment>
+
+
+<filter> sysget("RINGQT_NO_QGRAPHICSVIEW") = ""
+<loadfile> graphicsview/qgraphicsview.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENE") = ""
+<loadfile> graphicsview/qgraphicsscene.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSITEM") = ""
+<loadfile> graphicsview/qgraphicsitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTGRAPHICSSHAPEITEM") = ""
+<loadfile> graphicsview/qabstractgraphicsshapeitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSANCHOR") = ""
+<loadfile> graphicsview/qgraphicsanchor.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSANCHORLAYOUT") = ""
+<loadfile> graphicsview/qgraphicsanchorlayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSLAYOUT") = ""
+<loadfile> graphicsview/qgraphicslayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSELLIPSEITEM") = ""
+<loadfile> graphicsview/qgraphicsellipseitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSGRIDLAYOUT") = ""
+<loadfile> graphicsview/qgraphicsgridlayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSITEMGROUP") = ""
+<loadfile> graphicsview/qgraphicsitemgroup.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSLAYOUTITEM") = ""
+<loadfile> graphicsview/qgraphicslayoutitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSLINEITEM") = ""
+<loadfile> graphicsview/qgraphicslineitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSLINEARLAYOUT") = ""
+<loadfile> graphicsview/qgraphicslinearlayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSPATHITEM") = ""
+<loadfile> graphicsview/qgraphicspathitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSPIXMAPITEM") = ""
+<loadfile> graphicsview/qgraphicspixmapitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSPOLYGONITEM") = ""
+<loadfile> graphicsview/qgraphicspolygonitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSPROXYWIDGET") = ""
+<loadfile> graphicsview/qgraphicsproxywidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSRECTITEM") = ""
+<loadfile> graphicsview/qgraphicsrectitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENECONTEXTMENUEVENT") = ""
+<loadfile> graphicsview/qgraphicsscenecontextmenuevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENEDRAGDROPEVENT") = ""
+<loadfile> graphicsview/qgraphicsscenedragdropevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENEEVENT") = ""
+<loadfile> graphicsview/qgraphicssceneevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENEHELPEVENT") = ""
+<loadfile> graphicsview/qgraphicsscenehelpevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENEHOVEREVENT") = ""
+<loadfile> graphicsview/qgraphicsscenehoverevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENEMOUSEEVENT") = ""
+<loadfile> graphicsview/qgraphicsscenemouseevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENEMOVEEVENT") = ""
+<loadfile> graphicsview/qgraphicsscenemoveevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENERESIZEEVENT") = ""
+<loadfile> graphicsview/qgraphicssceneresizeevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSCENEWHEELEVENT") = ""
+<loadfile> graphicsview/qgraphicsscenewheelevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSSIMPLETEXTITEM") = ""
+<loadfile> graphicsview/qgraphicssimpletextitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTYLEOPTIONGRAPHICSITEM") = ""
+<loadfile> graphicsview/qstyleoptiongraphicsitem.cf
+</filter>
+
+<filter> (sysget("RINGQT_NOGRAPHICSSVG") = "") and sysget("RINGQT_NO_QGRAPHICSSVGITEM") = ""
+<loadfile> graphicsview/qgraphicssvgitem.cf
+</filter>
+
+<filter> sysget("RINGQT_NO_QGRAPHICSEFFECT") = ""
+<loadfile> graphicsview/qgraphicseffect.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSOBJECT") = ""
+<loadfile> graphicsview/qgraphicsobject.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSTEXTITEM") = ""
+<loadfile> graphicsview/qgraphicstextitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRAPHICSWIDGET") = ""
+<loadfile> graphicsview/qgraphicswidget.cf
+</filter>

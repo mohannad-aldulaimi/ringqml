@@ -1,0 +1,43 @@
+<comment>
+				Module (bluetooth)
+</comment>
+
+<filter> sysget("RINGQT_NO_QBLUETOOTHADDRESS") = ""
+<loadfile> bluetooth/qbluetoothaddress.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHDEVICEDISCOVERYAGENT") = ""
+<loadfile> bluetooth/qbluetoothdevicediscoveryagent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHDEVICEINFO") = ""
+<loadfile> bluetooth/qbluetoothdeviceinfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHHOSTINFO") = ""
+<loadfile> bluetooth/qbluetoothhostinfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHLOCALDEVICE") = ""
+<loadfile> bluetooth/qbluetoothlocaldevice.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHSERVER") = ""
+<loadfile> bluetooth/qbluetoothserver.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHSERVICEDISCOVERYAGENT") = ""
+<loadfile> bluetooth/qbluetoothservicediscoveryagent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHSERVICEINFO") = ""
+<loadfile> bluetooth/qbluetoothserviceinfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHSOCKET") = ""
+<loadfile> bluetooth/qbluetoothsocket.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHTRANSFERMANAGER") = ""
+<loadfile> bluetooth/qbluetoothtransfermanager.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHTRANSFERREPLY") = ""
+<loadfile> bluetooth/qbluetoothtransferreply.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHTRANSFERREQUEST") = ""
+<loadfile> bluetooth/qbluetoothtransferrequest.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBLUETOOTHUUID") = ""
+<loadfile> bluetooth/qbluetoothuuid.cf
+</filter>

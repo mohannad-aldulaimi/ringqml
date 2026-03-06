@@ -1,0 +1,35 @@
+<filter> sysget("RINGQT_REQUIRED_VERSION") = "6"
+<class>
+name: QMutex
+para: void
+nonew
+</class>
+</filter>
+<filter> sysget("RINGQT_REQUIRED_VERSION") != "6"
+<class>
+name: QMutex
+para: QMutex::RecursionMode
+</class>
+</filter>
+
+<filter> sysget("RINGQT_REQUIRED_VERSION") != "6"
+bool isRecursive(void)
+</filter>
+void lock(void)
+void unlock(void)
+
+<code>
+<filter> sysget("RINGQT_REQUIRED_VERSION") = "6"
+RING_FUNC(ring_QMutex_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QMutex *pObject = new QMutex();
+	RING_API_RETCPOINTER(pObject,"QMutex");
+}
+</filter>
+</code>
+

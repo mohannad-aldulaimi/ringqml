@@ -1,0 +1,40 @@
+<comment>
+				Module (positioning)
+</comment>
+
+<filter> sysget("RINGQT_NO_QGEOPOSITIONINFO") = ""
+<loadfile> positioning/qgeopositioninfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOCOORDINATE") = ""
+<loadfile> positioning/qgeocoordinate.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOADDRESS") = ""
+<loadfile> positioning/qgeoaddress.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOAREAMONITORINFO") = ""
+<loadfile> positioning/qgeoareamonitorinfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOAREAMONITORSOURCE") = ""
+<loadfile> positioning/qgeoareamonitorsource.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOCIRCLE") = ""
+<loadfile> positioning/qgeocircle.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOPOSITIONINFOSOURCE") = ""
+<loadfile> positioning/qgeopositioninfosource.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEORECTANGLE") = ""
+<loadfile> positioning/qgeorectangle.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOSHAPE") = ""
+<loadfile> positioning/qgeoshape.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOSATELLITEINFO") = ""
+<loadfile> positioning/qgeosatelliteinfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGEOSATELLITEINFOSOURCE") = ""
+<loadfile> positioning/qgeosatelliteinfosource.cf
+</filter>
+<filter> sysget("RINGQT_NO_QNMEAPOSITIONINFOSOURCE") = ""
+<loadfile> positioning/qnmeapositioninfosource.cf
+</filter>

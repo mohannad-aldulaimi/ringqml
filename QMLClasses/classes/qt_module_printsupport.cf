@@ -1,0 +1,25 @@
+<comment>
+				Module (printsupport)
+</comment>
+
+<filter> sysget("RINGQT_NO_QPRINTPREVIEWDIALOG") = ""
+<loadfile> printsupport/qprintpreviewdialog.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPRINTPREVIEWWIDGET") = ""
+<loadfile> printsupport/qprintpreviewwidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPRINTDIALOG") = ""
+<loadfile> printsupport/qprintdialog.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPRINTER") = ""
+<loadfile> printsupport/qprinter.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPRINTERINFO") = ""
+<loadfile> printsupport/qprinterinfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPAGESETUPDIALOG") = ""
+<loadfile> printsupport/qpagesetupdialog.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTPRINTDIALOG") = ""
+<loadfile> printsupport/qabstractprintdialog.cf
+</filter>

@@ -1,0 +1,28 @@
+<comment>
+				Module (sql)
+</comment>
+
+<filter> sysget("RINGQT_NO_QSQLDATABASE") = ""
+<loadfile> sql/qsqldatabase.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSQLDRIVER") = ""
+<loadfile> sql/qsqldriver.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSQLQUERY") = ""
+<loadfile> sql/qsqlquery.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSQLERROR") = ""
+<loadfile> sql/qsqlerror.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSQLINDEX") = ""
+<loadfile> sql/qsqlindex.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSQLRECORD") = ""
+<loadfile> sql/qsqlrecord.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSQLFIELD") = ""
+<loadfile> sql/qsqlfield.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSQLDRIVERCREATORBASE") = ""
+<loadfile> sql/qsqldrivercreatorbase.cf
+</filter>

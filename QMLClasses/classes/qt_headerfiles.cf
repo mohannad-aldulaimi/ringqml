@@ -1,0 +1,797 @@
+<code>
+
+extern "C" {
+	#include "ring.h"
+}
+
+<filter> (sysget("RINGQT_NOCORE") = "") and (sysget("RINGQT_NO_GTIMER") = "")
+#include "gtimer.h"
+</filter>
+<filter> (sysget("RINGQT_NOCORE") = "") and (sysget("RINGQT_NO_GIODEVICE") = "")
+#include "giodevice.h"
+</filter>
+<filter> (sysget("RINGQT_NOCORE") = "") and (sysget("RINGQT_NO_GPROCESS") = "")
+#include "gprocess.h"
+</filter>
+<filter> (sysget("RINGQT_NOCORE") = "") and (sysget("RINGQT_NO_GTHREAD") = "")
+#include "gthread.h"
+</filter>
+<filter> (sysget("RINGQT_NOCORE") = "") and (sysget("RINGQT_NO_QTCORE") = "")
+#include <QtCore>
+</filter>
+
+<filter> (sysget("RINGQT_NOGUI") = "") and (sysget("RINGQT_NO_GWINDOW") = "")
+#include "gwindow.h"
+</filter>
+<filter> (sysget("RINGQT_NOGUI") = "") and (sysget("RINGQT_NO_GGUIAPPLICATION") = "")
+#include "gguiapplication.h"
+</filter>
+<filter> (sysget("RINGQT_NOGUI") = "") and (sysget("RINGQT_NO_GDRAG") = "")
+#include "gdrag.h"
+</filter>
+<filter> (sysget("RINGQT_NOGUI") = "") and (sysget("RINGQT_NO_GMOVIE") = "")
+#include "gmovie.h"
+</filter>
+<filter> (sysget("RINGQT_NOGUI") = "") and (sysget("RINGQT_NO_GGROUPBOX") = "")
+#include "ggroupbox.h"
+</filter>
+<filter> (sysget("RINGQT_NOGUI") = "") and (sysget("RINGQT_NO_QTGUI") = "")
+#include <QtGui>
+</filter>
+
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GALLEVENTS") = "")
+#include "gallevents.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GACTION") = "")
+#include "gaction.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GPUSHBUTTON") = "")
+#include "gpushbutton.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GLINEEDIT") = "")
+#include "glineedit.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GTEXTEDIT") = "")
+#include "gtextedit.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GLISTWIDGET") = "")
+#include "glistwidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GTREEVIEW") = "")
+#include "gtreeview.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GTREEWIDGET") = "")
+#include "gtreewidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GCOMBOBOX") = "")
+#include "gcombobox.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GTABWIDGET") = "")
+#include "gtabwidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GTABLEWIDGET") = "")
+#include "gtablewidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GPROGRESSBAR") = "")
+#include "gprogressbar.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GSPINBOX") = "")
+#include "gspinbox.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GSLIDER") = "")
+#include "gslider.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GDIAL") = "")
+#include "gdial.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GCHECKBOX") = "")
+#include "gcheckbox.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GRADIOBUTTON") = "")
+#include "gradiobutton.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GBUTTONGROUP") = "")
+#include "gbuttongroup.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GCOLORDIALOG") = "")
+#include "gcolordialog.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GPLAINTEXTEDIT") = "")
+#include "gplaintextedit.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GHEADERVIEW") = "")
+#include "gheaderview.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_CODEEDITOR") = "")
+#include "codeeditor.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_HIGHLIGHTER") = "")
+#include "highlighter.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GTOOLBUTTON") = "")
+#include "gtoolbutton.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GTEXTBROWSER") = "")
+#include "gtextbrowser.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GDOCKWIDGET") = "")
+#include "gdockwidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GSTACKEDWIDGET") = "")
+#include "gstackedwidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GCALENDARWIDGET") = "")
+#include "gcalendarwidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GTABBAR") = "")
+#include "gtabbar.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GGRAPHICSSCENE") = "")
+#include "ggraphicsscene.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GCOLORDIALOG") = "")
+#include "gcolordialog.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GFONTDIALOG") = "")
+#include "gfontdialog.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GFILEDIALOG") = "")
+#include "gfiledialog.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_GDATETIMEEDIT") = "")
+#include "gdatetimeedit.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_MSCOMPLETER") = "")
+#include "mscompleter.h"
+</filter>
+<filter> (sysget("RINGQT_NOWIDGETS") = "") and (sysget("RINGQT_NO_QTWIDGETS") = "")
+#include <QtWidgets>
+</filter>
+
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_QGRAPHICSEFFECT") = "")
+#include <QGraphicsEffect>
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_GGRAPHICSEFFECT") = "")
+#include "ggraphicseffect.h"
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_QGRAPHICSOBJECT") = "")
+#include <QGraphicsObject>
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_GGRAPHICSOBJECT") = "")
+#include "ggraphicsobject.h"
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_QGRAPHICSTEXTITEM") = "")
+#include <QGraphicsTextItem>
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_GGRAPHICSTEXTITEM") = "")
+#include "ggraphicstextitem.h"
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_QGRAPHICSVIEW") = "")
+#include <QGraphicsView>
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_GGRAPHICSVIEW") = "")
+#include "ggraphicsview.h"
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_QGRAPHICSWIDGET") = "")
+#include <QGraphicsWidget>
+</filter>
+<filter> (sysget("RINGQT_NOGRAPHICSVIEW") = "") and (sysget("RINGQT_NO_GGRAPHICSWIDGET") = "")
+#include "ggraphicswidget.h"
+</filter>
+
+<filter> (sysget("RINGQT_NOGRAPHICSSVG") = "") and (sysget("RINGQT_NO_QGRAPHICSSVGITEM") = "")
+#include <QGraphicsSvgItem>
+</filter>
+
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_GVIDEOWIDGET") = "")
+#include "gvideowidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QMEDIACONTENT") = "")
+#include <QMediaContent>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QMEDIAPLAYER") = "")
+#include <QMediaPlayer>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QMEDIAPLAYLIST") = "")
+#include <QMediaPlaylist>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QVIDEOWIDGET") = "")
+#include <QVideoWidget>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QCAMERAVIEWFINDER") = "")
+#include <QCameraViewfinder>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QGRAPHICSVIDEOITEM") = "")
+#include <QGraphicsVideoItem>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QVIDEOWIDGETCONTROL") = "")
+#include <QVideoWidgetControl>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QCAMERA") = "")
+#include <QCamera>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QCAMERAIMAGECAPTURE") = "")
+#include <QCameraImageCapture>
+</filter>
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_NO_QAUDIOOUTPUT") = "")
+#include <QAudioOutput>
+</filter>
+
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_GBLUETOOTHDEVICEDISCOVERYAGENT") = "")
+#include "gbluetoothdevicediscoveryagent.h"
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_GBLUETOOTHLOCALDEVICE") = "")
+#include "gbluetoothlocaldevice.h"
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_GBLUETOOTHSERVER") = "")
+#include "gbluetoothserver.h"
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_GBLUETOOTHSERVICEDISCOVERYAGENT") = "")
+#include "gbluetoothservicediscoveryagent.h"
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_GBLUETOOTHSOCKET") = "")
+#include "gbluetoothsocket.h"
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_GBLUETOOTHTRANSFERMANAGER") = "")
+#include "gbluetoothtransfermanager.h"
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_GBLUETOOTHTRANSFERREPLY") = "")
+#include "gbluetoothtransferreply.h"
+</filter>
+
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QTSQL") = "")
+#include <QtSql>
+</filter>
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QSQLDATABASE") = "")
+#include <QSqlDatabase>
+</filter>
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QSQLDRIVER") = "")
+#include <QSqlDriver>
+</filter>
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QSQLQUERY") = "")
+#include <QSqlQuery>
+</filter>
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QSQLERROR") = "")
+#include <QSqlError>
+</filter>
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QSQLINDEX") = "")
+#include <QSqlIndex>
+</filter>
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QSQLRECORD") = "")
+#include <QSqlRecord>
+</filter>
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QSQLFIELD") = "")
+#include <QSqlField>
+</filter>
+<filter> (sysget("RINGQT_NOSQL") = "") and (sysget("RINGQT_NO_QSQLDRIVERCREATORBASE") = "")
+#include <QSqlDriverCreatorBase>
+</filter>
+
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_GNETWORKACCESSMANAGER") = "")
+#include "gnetworkaccessmanager.h"
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_GTCPSERVER") = "")
+#include "gtcpserver.h"
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_GABSTRACTSOCKET") = "")
+#include "gabstractsocket.h"
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_GTCPSOCKET") = "")
+#include "gtcpsocket.h"
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QABSTRACTSOCKET") = "")
+#include <QAbstractSocket>
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QTCPSOCKET") = "")
+#include <QTcpSocket>
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QTCPSERVER") = "")
+#include <QTcpServer>
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QNETWORKPROXY") = "")
+#include <QNetworkProxy>
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QHOSTADDRESS") = "")
+#include <QHostAddress>
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QHOSTINFO") = "")
+#include <QHostInfo>
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QNETWORKREQUEST") = "")
+#include <QNetworkRequest>
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QNETWORKACCESSMANAGER") = "")
+#include <QNetworkAccessManager>
+</filter>
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_NO_QNETWORKREPLY") = "")
+#include <QNetworkReply>
+</filter>
+
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHADDRESS") = "")
+#include <QBluetoothAddress>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHDEVICEDISCOVERYAGENT") = "")
+#include <QBluetoothDeviceDiscoveryAgent>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHDEVICEINFO") = "")
+#include <QBluetoothDeviceInfo>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHUUID") = "")
+#include <QBluetoothUuid>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHHOSTINFO") = "")
+#include <QBluetoothHostInfo>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHLOCALDEVICE") = "")
+#include <QBluetoothLocalDevice>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHSERVER") = "")
+#include <QBluetoothServer>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHSERVICEDISCOVERYAGENT") = "")
+#include <QBluetoothServiceDiscoveryAgent>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHSERVICEINFO") = "")
+#include <QBluetoothServiceInfo>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHSOCKET") = "")
+#include <QBluetoothSocket>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHTRANSFERMANAGER") = "")
+#include <QBluetoothTransferManager>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHTRANSFERREPLY") = "")
+#include <QBluetoothTransferReply>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHTRANSFERREQUEST") = "")
+#include <QBluetoothTransferRequest>
+</filter>
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_NO_QBLUETOOTHUUID") = "")
+#include <QBluetoothUuid>
+</filter>
+
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_GGEOPOSITIONINFOSOURCE") = "")
+#include "ggeopositioninfosource.h"
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOPOSITIONINFO") = "")
+#include <QGeoPositionInfo>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOCOORDINATE") = "")
+#include <QGeoCoordinate>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOADDRESS") = "")
+#include <QGeoAddress>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOAREAMONITORINFO") = "")
+#include <QGeoAreaMonitorInfo>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOAREAMONITORSOURCE") = "")
+#include <QGeoAreaMonitorSource>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOCIRCLE") = "")
+#include <QGeoCircle>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOPOSITIONINFOSOURCE") = "")
+#include <QGeoPositionInfoSource>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEORECTANGLE") = "")
+#include <QGeoRectangle>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOSHAPE") = "")
+#include <QGeoShape>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOSATELLITEINFO") = "")
+#include <QGeoSatelliteInfo>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QGEOSATELLITEINFOSOURCE") = "")
+#include <QGeoSatelliteInfoSource>
+</filter>
+<filter> (sysget("RINGQT_NOPOSITIONING") = "") and (sysget("RINGQT_NO_QNMEAPOSITIONINFOSOURCE") = "")
+#include <QNmeaPositionInfoSource>
+</filter>
+
+<filter> (sysget("RINGQT_NOTESTLIB") = "") and (sysget("RINGQT_NO_QTEST") = "")
+#include <QTest>
+</filter>
+
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_GPRINTPREVIEWWIDGET") = "")
+#include "gprintpreviewwidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_GPRINTPREVIEWDIALOG") = "")
+#include "gprintpreviewdialog.h"
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_GPRINTDIALOG") = "")
+#include "gprintdialog.h"
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_QPRINTER") = "")
+#include <QPrinter>
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_QPRINTERINFO") = "")
+#include <QPrinterInfo>
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_QPRINTPREVIEWWIDGET") = "")
+#include <QPrintPreviewWidget>
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_QPRINTPREVIEWDIALOG") = "")
+#include <QPrintPreviewDialog>
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_QPAGESETUPDIALOG") = "")
+#include <QPageSetupDialog>
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_QABSTRACTPRINTDIALOG") = "")
+#include <QAbstractPrintDialog>
+</filter>
+<filter> (sysget("RINGQT_NOPRINTSUPPORT") = "") and (sysget("RINGQT_NO_QPRINTDIALOG") = "")
+#include <QPrintDialog>
+</filter>
+
+<filter> (sysget("RINGQT_NOQML") = "") and (sysget("RINGQT_NO_GQUICKWIDGET") = "")
+#include "gquickwidget.h"
+</filter>
+<filter> (sysget("RINGQT_NOQML") = "") and (sysget("RINGQT_NO_QQUICKWIDGET") = "")
+#include <QQuickWidget>
+</filter>
+<filter> (sysget("RINGQT_NOQML") = "") and (sysget("RINGQT_NO_QQMLERROR") = "")
+#include <QQmlError>
+</filter>
+<filter> (sysget("RINGQT_NOQML") = "") and (sysget("RINGQT_NO_QQUICKVIEW") = "")
+#include <QQuickView>
+</filter>
+<filter> (sysget("RINGQT_NOQML") = "") and (sysget("RINGQT_NO_QQMLENGINE") = "")
+#include <QQmlEngine>
+</filter>
+
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_OPENGLWIDGET") = "")
+#include "openglwidget.h"
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLFUNCTIONS") = "")
+#include <QOpenGLFunctions>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLCONTEXT") = "")
+#include <QOpenGLContext>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QSURFACEFORMAT") = "")
+#include <QSurfaceFormat>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLFUNCTIONS_3_2_CORE") = "")
+#include <QOpenGLFunctions_3_2_Core>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLVERSIONPROFILE") = "")
+#include <QOpenGLVersionProfile>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLPAINTDEVICE") = "")
+#include <QOpenGLPaintDevice>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QPAINTDEVICE") = "")
+#include <QPaintDevice>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLTIMERQUERY") = "")
+#include <QOpenGLTimerQuery>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLDEBUGLOGGER") = "")
+#include <QOpenGLDebugLogger>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLFRAMEBUFFEROBJECT") = "")
+#include <QOpenGLFramebufferObject>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLVERTEXARRAYOBJECT") = "")
+#include <QOpenGLVertexArrayObject>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLBUFFER") = "")
+#include <QOpenGLBuffer>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLSHADERPROGRAM") = "")
+#include <QOpenGLShaderProgram>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLSHADER") = "")
+#include <QOpenGLShader>
+</filter>
+<filter> (((iswindows() or ismacosx()) and (sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOOPENGL") = "")) and (sysget("RINGQT_NO_QOPENGLTEXTURE") = "")
+#include <QOpenGLTexture>
+</filter>
+
+<filter> (((sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOSERIALPORT") = "")) and (sysget("RINGQT_NO_GSERIALPORT") = "")
+#include "gserialport.h"
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOSERIALPORT") = "")) and (sysget("RINGQT_NO_QSERIALPORT") = "")
+#include <QSerialPort>
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "")) and (sysget("RINGQT_NOSERIALPORT") = "")) and (sysget("RINGQT_NO_QSERIALPORTINFO") = "")
+#include <QSerialPortInfo>
+</filter>
+
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "")) and (sysget("RINGQT_NOWEBKITWIDGETS") = "")) and (sysget("RINGQT_NO_GWEBVIEW") = "")
+#include "gwebview.h"
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "")) and (sysget("RINGQT_NOWEBKITWIDGETS") = "")) and (sysget("RINGQT_NO_QWEBSETTINGS") = "")
+#include <QWebSettings>
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "")) and (sysget("RINGQT_NOWEBKITWIDGETS") = "")) and (sysget("RINGQT_NO_QWEBVIEW") = "")
+#include <QWebView>
+</filter>
+
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "1")) and (sysget("RINGQT_NOWEBENGINEWIDGETS") = "")) and (sysget("RINGQT_NO_GWEBENGINEVIEW") = "")
+#include "gwebengineview.h"
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "1")) and (sysget("RINGQT_NOWEBENGINEWIDGETS") = "")) and (sysget("RINGQT_NO_QWEBENGINESETTINGS") = "")
+#include <QWebEngineSettings>
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "1")) and (sysget("RINGQT_NOWEBENGINEWIDGETS") = "")) and (sysget("RINGQT_NO_QWEBENGINEVIEW") = "")
+#include <QWebEngineView>
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "1")) and (sysget("RINGQT_NOWEBENGINEWIDGETS") = "")) and (sysget("RINGQT_NO_QWEBENGINEPAGE") = "")
+#include <QWebEnginePage>
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "1")) and (sysget("RINGQT_NOWEBENGINEWIDGETS") = "")) and (sysget("RINGQT_NO_QWEBENGINEHISTORY") = "")
+#include <QWebEngineHistory>
+</filter>
+<filter> (((sysget("RINGQT_ANDROID") = "") and (sysget("RINGQT_NOWEBKIT") = "1")) and (sysget("RINGQT_NOWEBENGINEWIDGETS") = "")) and (sysget("RINGQT_NO_GWEBENGINEPAGE") = "")
+#include "gwebenginepage.h"
+</filter>
+
+<filter> (((iswindows() and (sysget("RINGQT_ANDROID") = ""))) and (sysget("RINGQT_NOAXCONTAINER") = "")) and (sysget("RINGQT_NO_QAXBASE") = "")
+#include <QAxBase>
+</filter>
+<filter> (((iswindows() and (sysget("RINGQT_ANDROID") = ""))) and (sysget("RINGQT_NOAXCONTAINER") = "")) and (sysget("RINGQT_NO_QAXOBJECT") = "")
+#include <QAxObject>
+</filter>
+<filter> (((iswindows() and (sysget("RINGQT_ANDROID") = ""))) and (sysget("RINGQT_NOAXCONTAINER") = "")) and (sysget("RINGQT_NO_QAXWIDGET") = "")
+#include <QAxWidget>
+</filter>
+
+<filter> (sysget("RINGQT_NOSPEECH") = "") and (sysget("RINGQT_NO_GTEXTTOSPEECH") = "")
+#include "gtexttospeech.h"
+</filter>
+<filter> (sysget("RINGQT_NOSPEECH") = "") and (sysget("RINGQT_NO_QTEXTTOSPEECH") = "")
+#include <QTextToSpeech>
+</filter>
+<filter> (sysget("RINGQT_NOSPEECH") = "") and (sysget("RINGQT_NO_QVOICE") = "")
+#include <QVoice>
+</filter>
+
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_GOBJECTPICKER") = "")
+#include "gobjectpicker.h"
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_GFRAMEACTION") = "")
+#include "gframeaction.h"
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QABSTRACTASPECT") = "")
+#include <Qt3DCore/QAbstractAspect>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QNODE") = "")
+#include <Qt3DCore/QNode>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QNODECOMMAND") = "")
+#include <Qt3DCore/QNodeCommand>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QENTITY") = "")
+#include <Qt3DCore/QEntity>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QTRANSFORM") = "")
+#include <Qt3DCore/QTransform>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QASPECTENGINE") = "")
+#include <Qt3DCore/QAspectEngine>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QTORUSMESH") = "")
+#include <Qt3DExtras/QTorusMesh>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QCONEMESH") = "")
+#include <Qt3DExtras/QConeMesh>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QCYLINDERMESH") = "")
+#include <Qt3DExtras/QCylinderMesh>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QCUBOIDMESH") = "")
+#include <Qt3DExtras/QCuboidMesh>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QPLANEMESH") = "")
+#include <Qt3DExtras/QPlaneMesh>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QSPHEREMESH") = "")
+#include <Qt3DExtras/QSphereMesh>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QPHONGMATERIAL") = "")
+#include <Qt3DExtras/QPhongMaterial>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QFORWARDRENDERER") = "")
+#include <Qt3DExtras/QForwardRenderer>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QT3DWINDOW") = "")
+#include <Qt3DExtras/Qt3DWindow>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QABSTRACTCAMERACONTROLLER") = "")
+#include <Qt3DExtras/QAbstractCameraController>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QFIRSTPERSONCAMERACONTROLLER") = "")
+#include <Qt3DExtras/QFirstPersonCameraController>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QCAMERA") = "")
+#include <Qt3DRender/QCamera>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QCAMERALENS") = "")
+#include <Qt3DRender/QCameraLens>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QMESH") = "")
+#include <Qt3DRender/QMesh>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QTECHNIQUE") = "")
+#include <Qt3DRender/QTechnique>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QMATERIAL") = "")
+#include <Qt3DRender/QMaterial>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QEFFECT") = "")
+#include <Qt3DRender/QEffect>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QTEXTURE") = "")
+#include <Qt3DRender/QTexture>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QRENDERPASS") = "")
+#include <Qt3DRender/QRenderPass>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QSCENELOADER") = "")
+#include <Qt3DRender/QSceneLoader>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QPOINTLIGHT") = "")
+#include <Qt3DRender/QPointLight>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QRENDERASPECT") = "")
+#include <Qt3DRender/QRenderAspect>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QINPUTASPECT") = "")
+#include <Qt3DInput/QInputAspect>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QTEXTUREMATERIAL") = "")
+#include <Qt3DExtras/QTextureMaterial>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QOBJECTPICKER") = "")
+#include <Qt3DRender/QObjectPicker>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QFRAMEACTION") = "")
+#include <Qt3DLogic/QFrameAction>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QLOGICASPECT") = "")
+#include <Qt3DLogic/QLogicAspect>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QEXTRUDEDTEXTMESH") = "")
+#include <Qt3DExtras/QExtrudedTextMesh>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QTEXT2DENTITY") = "")
+#include <Qt3DExtras/QText2DEntity>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QSKYBOXENTITY") = "")
+#include <Qt3DExtras/QSkyboxEntity>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QCONEGEOMETRY") = "")
+#include <Qt3DExtras/QConeGeometry>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QORBITCAMERACONTROLLER") = "")
+#include <Qt3DExtras/QOrbitCameraController>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QDIFFUSESPECULARMATERIAL") = "")
+#include <QDiffuseSpecularMaterial>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QGOOCHMATERIAL") = "")
+#include <QGoochMaterial>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QMETALROUGHMATERIAL") = "")
+#include <QMetalRoughMaterial>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QMORPHPHONGMATERIAL") = "")
+#include <QMorphPhongMaterial>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QPERVERTEXCOLORMATERIAL") = "")
+#include <QPerVertexColorMaterial>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QCAMERASELECTOR") = "")
+#include <QCameraSelector>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QCULLFACE") = "")
+#include <QCullFace>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QDEPTHTEST") = "")
+#include <QDepthTest>
+</filter>
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_NO_QVIEWPORT") = "")
+#include <QViewport>
+</filter>
+
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GABSTRACTBARSERIES") = "")
+#include "gabstractbarseries.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GABSTRACTAXIS") = "")
+#include "gabstractaxis.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GABSTRACTSERIES") = "")
+#include "gabstractseries.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GAREASERIES") = "")
+#include "gareaseries.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GBARCATEGORYAXIS") = "")
+#include "gbarcategoryaxis.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GBARSET") = "")
+#include "gbarset.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GBOXPLOTSERIES") = "")
+#include "gboxplotseries.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GBOXSET") = "")
+#include "gboxset.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GCANDLESTICKMODELMAPPER") = "")
+#include "gcandlestickmodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GCANDLESTICKSERIES") = "")
+#include "gcandlestickseries.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GCANDLESTICKSET") = "")
+#include "gcandlestickset.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GCATEGORYAXIS") = "")
+#include "gcategoryaxis.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GCHART") = "")
+#include "gchart.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GDATETIMEAXIS") = "")
+#include "gdatetimeaxis.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GHBARMODELMAPPER") = "")
+#include "ghbarmodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GHBOXPLOTMODELMAPPER") = "")
+#include "ghboxplotmodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GHCANDLESTICKMODELMAPPER") = "")
+#include "ghcandlestickmodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GHPIEMODELMAPPER") = "")
+#include "ghpiemodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GHXYMODELMAPPER") = "")
+#include "ghxymodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GLEGENDMARKER") = "")
+#include "glegendmarker.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GLOGVALUEAXIS") = "")
+#include "glogvalueaxis.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GPIESERIES") = "")
+#include "gpieseries.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GPIESLICE") = "")
+#include "gpieslice.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GSCATTERSERIES") = "")
+#include "gscatterseries.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GVBARMODELMAPPER") = "")
+#include "gvbarmodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GVBOXPLOTMODELMAPPER") = "")
+#include "gvboxplotmodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GVCANDLESTICKMODELMAPPER") = "")
+#include "gvcandlestickmodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GVPIEMODELMAPPER") = "")
+#include "gvpiemodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GVXYMODELMAPPER") = "")
+#include "gvxymodelmapper.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GVALUEAXIS") = "")
+#include "gvalueaxis.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_GXYSERIES") = "")
+#include "gxyseries.h"
+</filter>
+<filter> (sysget("RINGQT_NOCHARTS") = "") and (sysget("RINGQT_NO_QTCHARTS") = "")
+#include <QtCharts>
+</filter>
+
+</code>

@@ -1,0 +1,32 @@
+<comment>
+				Module (network)
+</comment>
+
+<filter> sysget("RINGQT_NO_QABSTRACTSOCKET") = ""
+<loadfile> network/qabstractsocket.cf
+</filter>
+<filter> sysget("RINGQT_NO_QNETWORKPROXY") = ""
+<loadfile> network/qnetworkproxy.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTCPSOCKET") = ""
+<loadfile> network/qtcpsocket.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTCPSERVER") = ""
+<loadfile> network/qtcpserver.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHOSTADDRESS") = ""
+<loadfile> network/qhostaddress.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHOSTINFO") = ""
+<loadfile> network/qhostinfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QNETWORKREQUEST") = ""
+<loadfile> network/qnetworkrequest.cf
+</filter>
+<filter> sysget("RINGQT_NO_QNETWORKREPLY") = ""
+<loadfile> network/qnetworkreply.cf
+</filter>
+
+<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_NO_QNETWORKACCESSMANAGER") = "")
+<loadfile> network/qnetworkaccessmanager.cf
+</filter>

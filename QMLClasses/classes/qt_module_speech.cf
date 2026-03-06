@@ -1,0 +1,13 @@
+<comment>
+				Module (Speech)
+</comment>
+
+<filter> sysget("RINGQT_NO_QTEXTTOSPEECH") = ""
+<loadfile> speech/qtexttospeech.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVOICE") = ""
+<loadfile> speech/qvoice.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVECTORQVOICE") = ""
+<loadfile> speech/qvectorqvoice.cf
+</filter>

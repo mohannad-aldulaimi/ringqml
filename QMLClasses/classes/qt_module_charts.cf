@@ -1,0 +1,148 @@
+<comment>
+				Module (Charts)
+</comment>
+
+<filter> sysget("RINGQT_NO_QABSTRACTAXIS") = ""
+<loadfile> charts/qabstractaxis.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTBARSERIES") = ""
+<loadfile> charts/qabstractbarseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTSERIES") = ""
+<loadfile> charts/qabstractseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QAREASERIES") = ""
+<loadfile> charts/qareaseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBARCATEGORYAXIS") = ""
+<loadfile> charts/qbarcategoryaxis.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBARSERIES") = ""
+<loadfile> charts/qbarseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBARSET") = ""
+<loadfile> charts/qbarset.cf
+</filter>
+<filter> sysget("RINGQT_NO_QAREALEGENDMARKER") = ""
+<loadfile> charts/qarealegendmarker.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBARLEGENDMARKER") = ""
+<loadfile> charts/qbarlegendmarker.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBOXPLOTLEGENDMARKER") = ""
+<loadfile> charts/qboxplotlegendmarker.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBOXPLOTSERIES") = ""
+<loadfile> charts/qboxplotseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBOXSET") = ""
+<loadfile> charts/qboxset.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCANDLESTICKLEGENDMARKER") = ""
+<loadfile> charts/qcandlesticklegendmarker.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCANDLESTICKMODELMAPPER") = ""
+<loadfile> charts/qcandlestickmodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCANDLESTICKSERIES") = ""
+<loadfile> charts/qcandlestickseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCANDLESTICKSET") = ""
+<loadfile> charts/qcandlestickset.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCATEGORYAXIS") = ""
+<loadfile> charts/qcategoryaxis.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCHART") = ""
+<loadfile> charts/qchart.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCHARTVIEW") = ""
+<loadfile> charts/qchartview.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDATETIMEAXIS") = ""
+<loadfile> charts/qdatetimeaxis.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHBARMODELMAPPER") = ""
+<loadfile> charts/qhbarmodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHBOXPLOTMODELMAPPER") = ""
+<loadfile> charts/qhboxplotmodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHCANDLESTICKMODELMAPPER") = ""
+<loadfile> charts/qhcandlestickmodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHPIEMODELMAPPER") = ""
+<loadfile> charts/qhpiemodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHXYMODELMAPPER") = ""
+<loadfile> charts/qhxymodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHORIZONTALBARSERIES") = ""
+<loadfile> charts/qhorizontalbarseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHORIZONTALPERCENTBARSERIES") = ""
+<loadfile> charts/qhorizontalpercentbarseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHORIZONTALSTACKEDBARSERIES") = ""
+<loadfile> charts/qhorizontalstackedbarseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLEGEND") = ""
+<loadfile> charts/qlegend.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLEGENDMARKER") = ""
+<loadfile> charts/qlegendmarker.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLINESERIES") = ""
+<loadfile> charts/qlineseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLOGVALUEAXIS") = ""
+<loadfile> charts/qlogvalueaxis.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPERCENTBARSERIES") = ""
+<loadfile> charts/qpercentbarseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPIELEGENDMARKER") = ""
+<loadfile> charts/qpielegendmarker.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPIESERIES") = ""
+<loadfile> charts/qpieseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPIESLICE") = ""
+<loadfile> charts/qpieslice.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPOLARCHART") = ""
+<loadfile> charts/qpolarchart.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSCATTERSERIES") = ""
+<loadfile> charts/qscatterseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSPLINESERIES") = ""
+<loadfile> charts/qsplineseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTACKEDBARSERIES") = ""
+<loadfile> charts/qstackedbarseries.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVBARMODELMAPPER") = ""
+<loadfile> charts/qvbarmodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVBOXPLOTMODELMAPPER") = ""
+<loadfile> charts/qvboxplotmodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVCANDLESTICKMODELMAPPER") = ""
+<loadfile> charts/qvcandlestickmodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVPIEMODELMAPPER") = ""
+<loadfile> charts/qvpiemodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVXYMODELMAPPER") = ""
+<loadfile> charts/qvxymodelmapper.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVALUEAXIS") = ""
+<loadfile> charts/qvalueaxis.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXYLEGENDMARKER") = ""
+<loadfile> charts/qxylegendmarker.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXYSERIES") = ""
+<loadfile> charts/qxyseries.cf
+</filter>

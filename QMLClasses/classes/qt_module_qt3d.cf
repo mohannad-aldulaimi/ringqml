@@ -1,0 +1,15 @@
+<filter> sysget("RINGQT_NO_QT3DCORE") = ""
+<loadfile> qt3d/qt3dcore.cf
+</filter>
+<filter> sysget("RINGQT_NO_QT3DEXTRAS") = ""
+<loadfile> qt3d/qt3dextras.cf
+</filter>
+<filter> sysget("RINGQT_NO_QT3DRENDER") = ""
+<loadfile> qt3d/qt3drender.cf
+</filter>
+<filter> sysget("RINGQT_NO_QT3DINPUT") = ""
+<loadfile> qt3d/qt3dinput.cf
+</filter>
+<filter> sysget("RINGQT_NO_QT3DLOGIC") = ""
+<loadfile> qt3d/qt3dlogic.cf
+</filter>

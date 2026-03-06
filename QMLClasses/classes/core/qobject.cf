@@ -1,0 +1,85 @@
+<class>
+name: QObject
+para: void
+</class>
+
+bool blockSignals(bool block)
+QObjectList children(void)
+void dumpObjectInfo(void)
+void dumpObjectTree(void)
+bool inherits(const char *className)
+void installEventFilter(QObject *filterObj)
+bool isWidgetType(void)
+void killTimer(int id)
+void moveToThread(QThread *targetThread)
+QString objectName(void)
+QObject *parent(void)
+QVariant property(const char *name)
+void removeEventFilter(QObject *obj)
+void setObjectName(QString)
+void setParent(QObject *parent)
+bool setProperty(const char *name, QVariant)
+bool setProperty@2(const char *name, int)
+bool setProperty@3(const char *name, float)
+bool setProperty@4(const char *name, double)
+bool setProperty@int(const char *name, int)
+bool setProperty@float(const char *name, float)
+bool setProperty@double(const char *name, double)
+<register>
+bool setProperty@5(const char *name, QString)
+bool setProperty@string(const char *name, QString)
+</register>
+
+<code>
+RING_FUNC(ring_QObject_setProperty_5)
+{
+	QObject *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QObject *) RING_API_GETCPOINTER(1,"QObject");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setProperty(RING_API_GETSTRING(2),QVariant(QString(RING_API_GETSTRING(3)))));
+}
+
+RING_FUNC(ring_QObject_setProperty_string)
+{
+	QObject *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QObject *) RING_API_GETCPOINTER(1,"QObject");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setProperty(RING_API_GETSTRING(2),QVariant(QString(RING_API_GETSTRING(3)))));
+}
+</code>
+bool signalsBlocked(void)
+int startTimer(int interval)
+QThread *thread(void)
+void deleteLater(void)

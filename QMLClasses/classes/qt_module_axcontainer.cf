@@ -1,0 +1,16 @@
+<comment>
+				Module (axcontainer)
+</comment>
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NO_QAXBASE") = ""
+<loadfile> axcontainer/qaxbase.cf
+</filter>
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NO_QAXOBJECT") = ""
+<loadfile> axcontainer/qaxobject.cf
+</filter>
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NO_QAXWIDGET") = ""
+<loadfile> axcontainer/qaxwidget.cf
+</filter>
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NO_QAXWIDGET2") = ""
+<loadfile> axcontainer/qaxwidget2.cf
+</filter>

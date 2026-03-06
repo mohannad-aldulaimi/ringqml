@@ -1,0 +1,189 @@
+<comment>
+				Module ( gui )
+</comment>
+
+<filter> sysget("RINGQT_NO_QDESKTOPSERVICES") = ""
+<loadfile> gui/qdesktopservices.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBITMAP") = ""
+<loadfile> gui/qbitmap.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPIXMAP") = ""
+<loadfile> gui/qpixmap.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPIXMAP2") = ""
+<loadfile> gui/qpixmap2.cf
+</filter>
+<filter> sysget("RINGQT_NO_QICON") = ""
+<loadfile> gui/qicon.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPAINTER") = ""
+<loadfile> gui/qpainter.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPAINTER2") = ""
+<loadfile> gui/qpainter2.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPICTURE") = ""
+<loadfile> gui/qpicture.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPEN") = ""
+<loadfile> gui/qpen.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCOLOR") = ""
+<loadfile> gui/qcolor.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFONT") = ""
+<loadfile> gui/qfont.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBRUSH") = ""
+<loadfile> gui/qbrush.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTCURSOR") = ""
+<loadfile> gui/qtextcursor.cf
+</filter>
+<filter> sysget("RINGQT_NO_QKEYSEQUENCE") = ""
+<loadfile> gui/qkeysequence.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTDOCUMENT") = ""
+<loadfile> gui/qtextdocument.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTOPTION") = ""
+<loadfile> gui/qtextoption.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTBLOCK") = ""
+<loadfile> gui/qtextblock.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPAINTERPATH") = ""
+<loadfile> gui/qpainterpath.cf
+</filter>
+<filter> sysget("RINGQT_NO_QIMAGE") = ""
+<loadfile> gui/qimage.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTCHARFORMAT") = ""
+<loadfile> gui/qtextcharformat.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFONTMETRICS") = ""
+<loadfile> gui/qfontmetrics.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLINEARGRADIENT") = ""
+<loadfile> gui/qlineargradient.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRADIENT") = ""
+<loadfile> gui/qgradient.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCURSOR") = ""
+<loadfile> gui/qcursor.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSCREEN") = ""
+<loadfile> gui/qscreen.cf
+</filter>
+<filter> sysget("RINGQT_NO_QWINDOW") = ""
+<loadfile> gui/qwindow.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGUIAPPLICATION") = ""
+<loadfile> gui/qguiapplication.cf
+</filter>
+<filter> sysget("RINGQT_NO_QREGION") = ""
+<loadfile> gui/qregion.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVECTOR2D") = ""
+<loadfile> gui/qvector2d.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVECTOR3D") = ""
+<loadfile> gui/qvector3d.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVECTOR4D") = ""
+<loadfile> gui/qvector4d.cf
+</filter>
+<filter> sysget("RINGQT_NO_QQUATERNION") = ""
+<loadfile> gui/qquaternion.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMATRIX4X4") = ""
+<loadfile> gui/qmatrix4x4.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDRAG") = ""
+<loadfile> gui/qdrag.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDROPEVENT") = ""
+<loadfile> gui/qdropevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDRAGMOVEEVENT") = ""
+<loadfile> gui/qdragmoveevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDRAGENTEREVENT") = ""
+<loadfile> gui/qdragenterevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDRAGLEAVEEVENT") = ""
+<loadfile> gui/qdragleaveevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCLIPBOARD") = ""
+<loadfile> gui/qclipboard.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMOVIE") = ""
+<loadfile> gui/qmovie.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFONTDATABASE") = ""
+<loadfile> gui/qfontdatabase.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVALIDATOR") = ""
+<loadfile> gui/qvalidator.cf
+</filter>
+<filter> sysget("RINGQT_NO_QINTVALIDATOR") = ""
+<loadfile> gui/qintvalidator.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDOUBLEVALIDATOR") = ""
+<loadfile> gui/qdoublevalidator.cf
+</filter>
+<filter> sysget("RINGQT_NO_QREGULAREXPRESSIONVALIDATOR") = ""
+<loadfile> gui/qregularexpressionvalidator.cf
+</filter>
+
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLFUNCTIONS") = ""
+<loadfile> gui/qopenglfunctions.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLCONTEXT") = ""
+<loadfile> gui/qopenglcontext.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLFUNCTIONS_3_2_CORE") = ""
+<loadfile> gui/qopenglfunctions_3_2_core.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QSURFACEFORMAT") = ""
+<loadfile> gui/qsurfaceformat.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLVERSIONPROFILE") = ""
+<loadfile> gui/qopenglversionprofile.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLPAINTDEVICE") = ""
+<loadfile> gui/qopenglpaintdevice.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QPAINTDEVICE") = ""
+<loadfile> gui/qpaintdevice.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLTIMERQUERY") = ""
+<loadfile> gui/qopengltimerquery.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLDEBUGLOGGER") = ""
+<loadfile> gui/qopengldebuglogger.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLFRAMEBUFFEROBJECT") = ""
+<loadfile> gui/qopenglframebufferobject.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLVERTEXARRAYOBJECT") = ""
+<loadfile> gui/qopenglvertexarrayobject.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLBUFFER") = ""
+<loadfile> gui/qopenglbuffer.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLSHADERPROGRAM") = ""
+<loadfile> gui/qopenglshaderprogram.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLSHADER") = ""
+<loadfile> gui/qopenglshader.cf
+</filter>
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLTEXTURE") = ""
+<loadfile> gui/qopengltexture.cf
+</filter>
+
+<filter> sysget("RINGQT_NO_QTRANSFORM") = ""
+<loadfile> gui/qtransform.cf
+</filter>

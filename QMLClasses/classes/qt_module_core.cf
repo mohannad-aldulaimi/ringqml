@@ -1,0 +1,196 @@
+<comment>
+				Module (core)
+</comment>
+
+<filter> sysget("RINGQT_NO_QOBJECT") = ""
+<loadfile> core/qobject.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSIZE") = ""
+<loadfile> core/qsize.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDIR") = ""
+<loadfile> core/qdir.cf
+</filter>
+<filter> sysget("RINGQT_NO_QURL") = ""
+<loadfile> core/qurl.cf
+</filter>
+<filter> sysget("RINGQT_NO_QEVENT") = ""
+<loadfile> core/qevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTIMER") = ""
+<loadfile> core/qtimer.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBYTEARRAY") = ""
+<loadfile> core/qbytearray.cf
+</filter>
+<filter> sysget("RINGQT_NO_QIODEVICE") = ""
+<loadfile> core/qiodevice.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFILEINFO") = ""
+<loadfile> core/qfileinfo.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTRINGLIST") = ""
+<loadfile> core/qstringlist.cf
+</filter>
+<filter> sysget("RINGQT_NO_QRECT") = ""
+<loadfile> core/qrect.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTIME") = ""
+<loadfile> core/qtime.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDATE") = ""
+<loadfile> core/qdate.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTCODEC") = ""
+<loadfile> core/qtextcodec.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVARIANT") = ""
+<loadfile> core/qvariant.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXMLSTREAMREADER") = ""
+<loadfile> core/qxmlstreamreader.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXMLSTREAMWRITER") = ""
+<loadfile> core/qxmlstreamwriter.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXMLSTREAMNOTATIONDECLARATION") = ""
+<loadfile> core/qxmlstreamnotationdeclaration.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXMLSTREAMNAMESPACEDECLARATION") = ""
+<loadfile> core/qxmlstreamnamespacedeclaration.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXMLSTREAMENTITYDECLARATION") = ""
+<loadfile> core/qxmlstreamentitydeclaration.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXMLSTREAMENTITYRESOLVER") = ""
+<loadfile> core/qxmlstreamentityresolver.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXMLSTREAMATTRIBUTES") = ""
+<loadfile> core/qxmlstreamattributes.cf
+</filter>
+<filter> sysget("RINGQT_NO_QXMLSTREAMATTRIBUTE") = ""
+<loadfile> core/qxmlstreamattribute.cf
+</filter>
+<filter> sysget("RINGQT_NO_QREGULAREXPRESSION") = ""
+<loadfile> core/qregularexpression.cf
+</filter>
+<filter> sysget("RINGQT_NO_QREGULAREXPRESSIONMATCH") = ""
+<loadfile> core/qregularexpressionmatch.cf
+</filter>
+<filter> sysget("RINGQT_NO_QREGULAREXPRESSIONMATCHITERATOR") = ""
+<loadfile> core/qregularexpressionmatchiterator.cf
+</filter>
+<filter> sysget("RINGQT_NO_QJSONARRAY") = ""
+<loadfile> core/qjsonarray.cf
+</filter>
+<filter> sysget("RINGQT_NO_QJSONDOCUMENT") = ""
+<loadfile> core/qjsondocument.cf
+</filter>
+<filter> sysget("RINGQT_NO_QJSONOBJECT") = ""
+<loadfile> core/qjsonobject.cf
+</filter>
+<filter> sysget("RINGQT_NO_QJSONPARSEERROR") = ""
+<loadfile> core/qjsonparseerror.cf
+</filter>
+<filter> sysget("RINGQT_NO_QJSONVALUE") = ""
+<loadfile> core/qjsonvalue.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPOINTF") = ""
+<loadfile> core/qpointf.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPOINT") = ""
+<loadfile> core/qpoint.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTRING2") = ""
+<loadfile> core/qstring2.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTRINGREF") = ""
+<loadfile> core/qstringref.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBUFFER") = ""
+<loadfile> core/qbuffer.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDATETIME") = ""
+<loadfile> core/qdatetime.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCOREAPPLICATION") = ""
+<loadfile> core/qcoreapplication.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFILE") = ""
+<loadfile> core/qfile.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFILE2") = ""
+<loadfile> core/qfile2.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFILEDEVICE") = ""
+<loadfile> core/qfiledevice.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTANDARDPATHS") = ""
+<loadfile> core/qstandardpaths.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMIMEDATA") = ""
+<loadfile> core/qmimedata.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCHAR") = ""
+<loadfile> core/qchar.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCHILDEVENT") = ""
+<loadfile> core/qchildevent.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTSTREAM") = ""
+<loadfile> core/qtextstream.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTSTREAM2") = ""
+<loadfile> core/qtextstream2.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTSTREAM3") = ""
+<loadfile> core/qtextstream3.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTSTREAM4") = ""
+<loadfile> core/qtextstream4.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTSTREAM5") = ""
+<loadfile> core/qtextstream5.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLOCALE") = ""
+<loadfile> core/qlocale.cf
+</filter>
+
+<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_NO_QTHREAD") = "")
+<loadfile> core/qthread.cf
+</filter>
+<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_NO_QTHREADPOOL") = "")
+<loadfile> core/qthreadpool.cf
+</filter>
+<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_NO_QPROCESS") = "")
+<loadfile> core/qprocess.cf
+</filter>
+<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_NO_QUUID") = "")
+<loadfile> core/quuid.cf
+</filter>
+<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_NO_QMUTEX") = "")
+<loadfile> core/qmutex.cf
+</filter>
+<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_NO_QMUTEXLOCKER") = "")
+<loadfile> core/qmutexlocker.cf
+</filter>
+
+<filter> sysget("RINGQT_NO_QRECTF") = ""
+<loadfile> core/qrectf.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLINEF") = ""
+<loadfile> core/qlinef.cf
+</filter>
+<filter> sysget("RINGQT_NO_QREGEXP") = ""
+<loadfile> core/qregexp.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMODELINDEX") = ""
+<loadfile> core/qmodelindex.cf
+</filter>
+
+<filter> sysget("RINGQT_NO_QVERSIONNUMBER") = ""
+<loadfile> core/qversionnumber.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLIBRARYINFO") = ""
+<loadfile> core/qlibraryinfo.cf
+</filter>

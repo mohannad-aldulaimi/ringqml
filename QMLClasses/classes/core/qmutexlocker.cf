@@ -1,0 +1,17 @@
+<filter> sysget("RINGQT_REQUIRED_VERSION") = "6"
+<class>
+name: QMutexLocker
+codename: QMutexLocker<QMutex>
+para: QMutex *
+</class>
+</filter>
+<filter> sysget("RINGQT_REQUIRED_VERSION") != "6"
+<class>
+name: QMutexLocker
+para: QMutex *
+</class>
+</filter>
+
+QMutex * mutex(void)
+void relock(void)
+void unlock(void)

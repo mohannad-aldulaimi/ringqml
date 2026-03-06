@@ -1,0 +1,146 @@
+<class>
+name: QVariant
+para: void
+</class>
+
+bool canConvert(int targetTypeId)
+void clear(void)
+bool convert(int targetTypeId)
+bool isNull(void)
+bool isValid(void)
+void swap(QVariant)
+QBitArray toBitArray(void)
+bool toBool(void)
+QByteArray toByteArray(void)
+QChar toChar(void)
+QDate toDate(void)
+QDateTime toDateTime(void)
+double toDouble(bool *ok)
+QEasingCurve toEasingCurve(void)
+float toFloat(bool *ok)
+int toInt(bool *ok)
+QJsonArray toJsonArray(void)
+QJsonDocument toJsonDocument(void)
+QJsonObject toJsonObject(void)
+QJsonValue toJsonValue(void)
+QLine toLine(void)
+QLineF toLineF(void)
+QLocale toLocale(void)
+qlonglong toLongLong(bool *ok)
+QModelIndex toModelIndex(void)
+<comment>
+QPersistentModelIndex toPersistentModelIndex(void)
+</comment>
+QPoint toPoint(void)
+QPointF toPointF(void)
+qreal toReal(bool *ok)
+QRect toRect(void)
+QRectF toRectF(void)
+<filter> sysget("RINGQT_NO_QREGEXP") = ""
+QRegExp toRegExp(void)
+</filter>
+<filter> sysget("RINGQT_NO_QREGULAREXPRESSION") = ""
+QRegularExpression toRegularExpression(void)
+</filter>
+QSize toSize(void)
+QSizeF toSizeF(void)
+QStringList toStringList(void)
+QTime toTime(void)
+uint toUInt(bool *ok)
+qulonglong toULongLong(bool *ok)
+QUrl toUrl(void)
+QUuid toUuid(void)
+QVariant::Type type(void)
+const char *typeName(void)
+int userType(void)
+QString toString(void)
+
+<class>
+name: QVariant2
+parent: QVariant
+para: int
+codename: QVariant
+</class>
+
+<class>
+name: QVariant3
+parent: QVariant
+para: float
+codename: QVariant
+</class>
+
+<class>
+name: QVariant4
+parent: QVariant
+para: double
+codename: QVariant
+</class>
+
+<class>
+name: QVariant5
+parent: QVariant
+para: QString
+codename: QVariant
+nonew
+</class>
+
+<class>
+name: QVariantInt
+parent: QVariant
+para: int
+codename: QVariant
+</class>
+
+<class>
+name: QVariantFloat
+parent: QVariant
+para: float
+codename: QVariant
+</class>
+
+<class>
+name: QVariantDouble
+parent: QVariant
+para: double
+codename: QVariant
+</class>
+
+<class>
+name: QVariantString
+parent: QVariant
+para: QString
+codename: QVariant
+nonew
+</class>
+
+<code>
+RING_FUNC(ring_QVariant5_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QVariant *pObject = new QVariant(QString(RING_API_GETSTRING(1)));
+	RING_API_RETCPOINTER(pObject,"QVariant5");
+}
+
+RING_FUNC(ring_QVariantString_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QVariant *pObject = new QVariant(QString(RING_API_GETSTRING(1)));
+	RING_API_RETCPOINTER(pObject,"QVariantString");
+}
+</code>

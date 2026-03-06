@@ -1,0 +1,7 @@
+<comment>
+				Module ( testlib )
+</comment>
+
+<filter> sysget("RINGQT_NO_QTEST") = ""
+<loadfile> testlib/qtest.cf
+</filter>

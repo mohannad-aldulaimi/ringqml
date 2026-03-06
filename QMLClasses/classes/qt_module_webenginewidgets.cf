@@ -1,0 +1,10 @@
+<comment>
+				Module (webenginewidgets)
+</comment>
+
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1") and sysget("RINGQT_NO_QWEBENGINEVIEW") = ""
+<loadfile> web/qwebengineview.cf
+</filter>
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1") and sysget("RINGQT_NO_QWEBENGINEPAGE") = ""
+<loadfile> web/qwebenginepage.cf
+</filter>

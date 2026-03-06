@@ -1,0 +1,95 @@
+<libinitfunc> ring_qt_start
+
+<runcodenow> if sysget("RINGQT_CORE_ALONE") = "1" $globals[:AppType] = :Core  ok
+<runcodenow> if sysget("RINGQT_QML_ALONE") = "1" $globals[:AppType] = :QML  ok
+<runcodenow> if $globals[:AppType] = NULL  $globals[:AppType] = :Application  ok
+
+<filter> $globals[:AppType] = :QML
+<code>
+#include <QByteArray>
+#include <QString>
+#include <QObject>
+
+#ifdef Q_OS_WIN
+#include <windows.h>
+#endif
+
+extern "C" {
+    RING_API void ring_qt_start(RingState *pRingState);
+
+    RingState *g_pRingState = nullptr;
+
+    RING_FUNC(ring_start_qt6_gui) {
+        if (RING_API_PARACOUNT == 1) {
+            QString qtPath = QString(RING_API_GETSTRING(1));
+            
+            QCoreApplication::addLibraryPath(qtPath + "/plugins");
+            qputenv("QT_QPA_PLATFORM_PLUGIN_PATH", (qtPath + "/plugins/platforms").toUtf8());
+            
+            QString binPath = qtPath + "/bin;";
+            binPath.replace("/", "\\"); 
+            
+            QByteArray currentPath = qgetenv("PATH");
+            qputenv("PATH", binPath.toUtf8() + currentPath);
+            
+            if (g_pRingState) {
+                new QApplication(g_pRingState->nArgc, g_pRingState->pArgv);
+                
+                // Handle silent exit for Windows while keeping Android/Wasm native
+                QObject::connect(qApp, &QCoreApplication::aboutToQuit, []() {
+                    #ifdef Q_OS_WIN
+                        TerminateProcess(GetCurrentProcess(), 0);
+                    #endif
+                });
+
+                ring_qt_start(g_pRingState);
+            }
+        }
+    }
+
+    RING_LIBINIT
+    {
+        g_pRingState = pRingState;
+        RING_API_REGISTER("start_qt6_gui", ring_start_qt6_gui);
+    }
+}
+</code>
+</filter>
+
+<filter> $globals[:AppType] != :QML
+<code>
+extern "C" {
+
+    RING_API void ring_qt_start(RingState *pRingState);
+
+    RING_LIBINIT
+    {
+</code>
+</filter>
+
+<filter> $globals[:AppType] = :Application
+<code>
+        new QApplication(pRingState->nArgc,pRingState->pArgv);
+</code>
+</filter>
+
+<filter> $globals[:AppType] = :GUI
+<code>
+        new QGuiApplication(pRingState->nArgc,pRingState->pArgv);
+</code>
+</filter>
+
+<filter> $globals[:AppType] = :Core
+<code>
+        new QCoreApplication(pRingState->nArgc,pRingState->pArgv);
+</code>
+</filter>
+
+<filter> $globals[:AppType] != :QML
+<code>
+        ring_qt_start(pRingState) ;
+    }
+
+}
+</code>
+</filter>

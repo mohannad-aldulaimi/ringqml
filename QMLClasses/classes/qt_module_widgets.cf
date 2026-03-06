@@ -1,0 +1,242 @@
+<comment>
+				Module (widgets)
+</comment>
+
+<filter> sysget("RINGQT_NO_QAPP") = ""
+<loadfile> widgets/qapp.cf
+</filter>
+<filter> sysget("RINGQT_NO_QWIDGET") = ""
+<loadfile> widgets/qwidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLABEL") = ""
+<loadfile> widgets/qlabel.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPUSHBUTTON") = ""
+<loadfile> widgets/qpushbutton.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLINEEDIT") = ""
+<loadfile> widgets/qlineedit.cf
+</filter>
+<filter> sysget("RINGQT_NO_QVBOXLAYOUT") = ""
+<loadfile> widgets/qvboxlayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHBOXLAYOUT") = ""
+<loadfile> widgets/qhboxlayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTEDIT") = ""
+<loadfile> widgets/qtextedit.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLISTWIDGET") = ""
+<loadfile> widgets/qlistwidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTREEVIEW") = ""
+<loadfile> widgets/qtreeview.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFILESYSTEMMODEL") = ""
+<loadfile> widgets/qfilesystemmodel.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTREEWIDGET") = ""
+<loadfile> widgets/qtreewidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTREEWIDGETITEM") = ""
+<loadfile> widgets/qtreewidgetitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCOMBOBOX") = ""
+<loadfile> widgets/qcombobox.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMENUBAR") = ""
+<loadfile> widgets/qmenubar.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMENU") = ""
+<loadfile> widgets/qmenu.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTOOLBAR") = ""
+<loadfile> widgets/qtoolbar.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMAINWINDOW") = ""
+<loadfile> widgets/qmainwindow.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTATUSBAR") = ""
+<loadfile> widgets/qstatusbar.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDOCKWIDGET") = ""
+<loadfile> widgets/qdockwidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTABWIDGET") = ""
+<loadfile> widgets/qtabwidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTABLEWIDGETITEM") = ""
+<loadfile> widgets/qtablewidgetitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFRAME") = ""
+<loadfile> widgets/qframe.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFRAME2") = ""
+<loadfile> widgets/qframe2.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFRAME3") = ""
+<loadfile> widgets/qframe3.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTSCROLLAREA") = ""
+<loadfile> widgets/qabstractscrollarea.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTITEMVIEW") = ""
+<loadfile> widgets/qabstractitemview.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTABLEVIEW") = ""
+<loadfile> widgets/qtableview.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTABLEWIDGET") = ""
+<loadfile> widgets/qtablewidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPROGRESSBAR") = ""
+<loadfile> widgets/qprogressbar.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSPINBOX") = ""
+<loadfile> widgets/qspinbox.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTSLIDER") = ""
+<loadfile> widgets/qabstractslider.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSLIDER") = ""
+<loadfile> widgets/qslider.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDATEEDIT") = ""
+<loadfile> core/qdateedit.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDATETIMEEDIT") = ""
+<loadfile> widgets/qdatetimeedit.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTSPINBOX") = ""
+<loadfile> widgets/qabstractspinbox.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDIAL") = ""
+<loadfile> widgets/qdial.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCHECKBOX") = ""
+<loadfile> widgets/qcheckbox.cf
+</filter>
+<filter> sysget("RINGQT_NO_QABSTRACTBUTTON") = ""
+<loadfile> widgets/qabstractbutton.cf
+</filter>
+<filter> sysget("RINGQT_NO_QRADIOBUTTON") = ""
+<loadfile> widgets/qradiobutton.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBUTTONGROUP") = ""
+<loadfile> widgets/qbuttongroup.cf
+</filter>
+<filter> sysget("RINGQT_NO_QACTION") = ""
+<loadfile> widgets/qaction.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMESSAGEBOX") = ""
+<loadfile> widgets/qmessagebox.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFILEDIALOG") = ""
+<loadfile> widgets/qfiledialog.cf
+</filter>
+<filter> sysget("RINGQT_NO_QFONTDIALOG") = ""
+<loadfile> widgets/qfontdialog.cf
+</filter>
+<filter> sysget("RINGQT_NO_QDIALOG") = ""
+<loadfile> widgets/qdialog.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCOLORDIALOG") = ""
+<loadfile> widgets/qcolordialog.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLCDNUMBER") = ""
+<loadfile> widgets/qlcdnumber.cf
+</filter>
+<filter> sysget("RINGQT_NO_QINPUTDIALOG") = ""
+<loadfile> widgets/qinputdialog.cf
+</filter>
+<filter> sysget("RINGQT_NO_QALLEVENTS") = ""
+<loadfile> widgets/qallevents.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLISTWIDGETITEM") = ""
+<loadfile> widgets/qlistwidgetitem.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSYSTEMTRAYICON") = ""
+<loadfile> widgets/qsystemtrayicon.cf
+</filter>
+<filter> sysget("RINGQT_NO_RINGCODEHIGHLIGHTER") = ""
+<loadfile> widgets/ringcodehighlighter.cf
+</filter>
+<filter> sysget("RINGQT_NO_QPLAINTEXTEDIT") = ""
+<loadfile> widgets/qplaintextedit.cf
+</filter>
+<filter> sysget("RINGQT_NO_CODEEDITOR") = ""
+<loadfile> widgets/codeeditor.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGRIDLAYOUT") = ""
+<loadfile> widgets/qgridlayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QHEADERVIEW") = ""
+<loadfile> widgets/qheaderview.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSPLASHSCREEN") = ""
+<loadfile> widgets/qsplashscreen.cf
+</filter>
+<filter> sysget("RINGQT_NO_QBOXLAYOUT") = ""
+<loadfile> widgets/qboxlayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLAYOUT") = ""
+<loadfile> widgets/qlayout.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSCROLLAREA") = ""
+<loadfile> widgets/qscrollarea.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSPLITTER") = ""
+<loadfile> widgets/qsplitter.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCOMPLETER") = ""
+<loadfile> widgets/qcompleter.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCOMPLETER2") = ""
+<loadfile> widgets/qcompleter2.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCOMPLETER3") = ""
+<loadfile> widgets/qcompleter3.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCOMPLETER4") = ""
+<loadfile> widgets/qcompleter4.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMDIAREA") = ""
+<loadfile> widgets/qmdiarea.cf
+</filter>
+<filter> sysget("RINGQT_NO_QMDISUBWINDOW") = ""
+<loadfile> widgets/qmdisubwindow.cf
+</filter>
+<filter> sysget("RINGQT_NO_QLISTVIEW") = ""
+<loadfile> widgets/qlistview.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTOOLBUTTON") = ""
+<loadfile> widgets/qtoolbutton.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTEXTBROWSER") = ""
+<loadfile> widgets/qtextbrowser.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTACKEDWIDGET") = ""
+<loadfile> widgets/qstackedwidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QCALENDERWIDGET") = ""
+<loadfile> widgets/qcalenderwidget.cf
+</filter>
+<filter> sysget("RINGQT_NO_QTABBAR") = ""
+<loadfile> widgets/qtabbar.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSCROLLBAR") = ""
+<loadfile> widgets/qscrollbar.cf
+</filter>
+<filter> sysget("RINGQT_NO_QSTYLE") = ""
+<loadfile> widgets/qstyle.cf
+</filter>
+<filter> sysget("RINGQT_NO_QGROUPBOX") = ""
+<loadfile> widgets/qgroupbox.cf
+</filter>
+<comment>
+<loadfile> widgets/qdesktopwidget.cf
+</comment>
+
+<filter> (((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = "") and sysget("RINGQT_NO_QOPENGLWIDGET") = ""
+<loadfile> widgets/qopenglwidget.cf
+</filter>
