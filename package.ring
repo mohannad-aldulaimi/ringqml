@@ -27,9 +27,6 @@ aPackageInfo = [
 	:ringfolderfiles = 	[
 		"bin/load/ringQML.ring",
 		"bin/load/ring_qt_qml.ring",
-		"bin/ring_qt_qml.dll",
-		"bin/RingQML.dll",
-		"bin/RingQML6.dll",
 		"libraries/RingQML/callringfuncfromqml.ring",
 		"libraries/RingQML/corefunctions.ring",
 		"libraries/RingQML/globals.ring",
@@ -57,7 +54,9 @@ aPackageInfo = [
 
 	],
 	:windowsringfolderfiles = 	[
-		"bin/RingQML.dll"
+		"bin/ring_qt_qml.dll",
+		"bin/RingQML.dll",
+		"bin/RingQML6.dll"
 	],
 	:linuxringfolderfiles = 	[
 
