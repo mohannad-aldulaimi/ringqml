@@ -82,8 +82,17 @@ Here is a simple example showing how to load the library, create a Qt Applicatio
     "</span>
 </pre>
 
+## 📚 Documentation
+
+Detailed documentation and guides on how to use the library features are available in the `DOCS` folder:
+* [Getting Started Guide](DOCS/Getting_Started.md) - Learn how to set up RingQML and load your first QML interface.
+* [RingQML Class Reference](DOCS/RingQML_Class_Reference.md) - A complete reference to every method available in the library such as `setWinIcon`, `shareImage`, and `NewComponent`.
+* [Interactivity and Data](DOCS/Interactivity_and_Data.md) - Learn how to communicate bidirectionally with QML, including using direct native calls via `oQML.root`.
+* [Components and Snapshots](DOCS/Components_and_Snapshots.md) - Explore advanced features like instantiating ad-hoc QML elements and taking visual widget snapshots.
+
 ## 📂 File Structure
 
+* **DOCS**: Contains detailed Markdown documentation pages.
 * **libraries/RingQML**: Contains `*.ring` files (Ring library).
 * **src**: Contains C/C++ and Qt project files for the extension.
 * **bin**: Contains `RingQML.dll` file.
