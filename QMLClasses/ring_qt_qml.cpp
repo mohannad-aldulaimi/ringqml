@@ -54,19 +54,144 @@ extern "C" {
 #include <QByteArray>
 #include <QString>
 #include <QObject>
-
-
+#include <QRegularExpression>
+#include <QFileInfo>
+#include <QFile>
+#include <QTextStream>
+#include <stdio.h>
+#ifdef Q_OS_WIN
 #include <windows.h>
-
-
+#endif
 extern "C" {
 RING_API void ring_qt_start(RingState *pRingState);
 
 RingState *g_pRingState = nullptr;
 
+void ring_qt_message_handler(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
+QString cleanMsg = msg;
+
+// Remove surrounding quotes if added by qDebug
+if (cleanMsg.startsWith("\"") && cleanMsg.endsWith("\"") && cleanMsg.length() >= 2) {
+cleanMsg = cleanMsg.mid(1, cleanMsg.length() - 2);
+}
+
+// Clean up extra slashes and escaped quotes
+cleanMsg.replace("file:///", "");
+cleanMsg.replace("\\\"", "\"");
+cleanMsg.replace("\\n", "\n");
+
+QString fileName = "Unknown";
+QString lineNumber = "Unknown";
+int columnNum = -1;
+QString fullFilePath = "";
+QString errorText = cleanMsg;
+QString severity = "error";
+
+if (type == QtWarningMsg) severity = "warning";
+else if (type == QtCriticalMsg || type == QtFatalMsg) severity = "error";
+else if (type == QtDebugMsg || type == QtInfoMsg) severity = "info";
+
+// Try parsing QML error format: path/to/file.qml:line:col: message or path:line message
+QRegularExpression re("^(.+?(?:\\.qml|\\.js)):(\\d+)(?::(\\d+))?:?\\s*(.*)$", QRegularExpression::CaseInsensitiveOption);
+QRegularExpressionMatch match = re.match(cleanMsg);
+
+if (match.hasMatch()) {
+fullFilePath = match.captured(1);
+lineNumber = match.captured(2);
+if (!match.captured(3).isEmpty()) {
+columnNum = match.captured(3).toInt();
+}
+errorText = match.captured(4);
+
+QFileInfo fileInfo(fullFilePath);
+fileName = fileInfo.fileName();
+} else if (context.file) {
+fullFilePath = QString(context.file);
+QFileInfo fileInfo(fullFilePath);
+fileName = fileInfo.fileName();
+lineNumber = QString::number(context.line);
+}
+
+// Map genuine error codes based on content
+QString errorCode = "000"; // Default unknown
+
+if (errorText.contains("ReferenceError", Qt::CaseInsensitive) || errorText.contains("is not defined", Qt::CaseInsensitive)) {
+errorCode = "QML-ER001"; // Reference Error
+} else if (errorText.contains("SyntaxError", Qt::CaseInsensitive) || errorText.contains("Unexpected token", Qt::CaseInsensitive) || errorText.contains("Expected", Qt::CaseInsensitive)) {
+errorCode = "QML-ER002"; // Syntax Error
+} else if (errorText.contains("TypeError", Qt::CaseInsensitive) || errorText.contains("Cannot read property", Qt::CaseInsensitive) || errorText.contains("Cannot assign", Qt::CaseInsensitive) || errorText.contains("Invalid property", Qt::CaseInsensitive)) {
+errorCode = "QML-ER003"; // Type / Assignment Error
+} else if (errorText.contains("is not installed", Qt::CaseInsensitive) || errorText.contains("module", Qt::CaseInsensitive)) {
+errorCode = "QML-ER004"; // Module Import Error
+} else if (errorText.contains("failed to load", Qt::CaseInsensitive)) {
+errorCode = "QML-ER005"; // Load Error
+}
+
+if (fileName.compare("code.qml", Qt::CaseInsensitive) == 0) {
+fileName = "LoadContent()";
+}
+
+QString snippet = "";
+if (!fullFilePath.isEmpty()) {
+QFile file(fullFilePath);
+if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+QTextStream in(&file);
+int targetLine = lineNumber.toInt();
+int currentLine = 1;
+while (!in.atEnd() && currentLine <= targetLine) {
+QString lineStr = in.readLine();
+if (currentLine == targetLine) {
+snippet = lineStr;
+break;
+}
+currentLine++;
+}
+file.close();
+}
+}
+
+QString formattedMsg = "";
+formattedMsg += QString("RingQML (%1) : %2.\n").arg(severity, fileName);
+formattedMsg += QString("Error in Line : %1.\n").arg(lineNumber);
+formattedMsg += QString("Error code : %1.\n").arg(errorCode);
+formattedMsg += QString("Error Text : %1\n").arg(errorText.trimmed());
+
+if (!snippet.isEmpty()) {
+formattedMsg += QString("Error around : %1\n").arg(snippet);
+if (columnNum > 0) {
+QString padding = "			   "; // "Error around : " is 15 chars
+for (int i = 0; i < columnNum - 1 && i < snippet.length(); ++i) {
+if (snippet[i] == '\t') padding += '\t';
+else padding += ' ';
+}
+formattedMsg += padding + "^\n";
+}
+}
+
+formattedMsg += "----------------";
+
+QByteArray localMsg = formattedMsg.toUtf8();
+
+// 1. Force the error to print to stdout so it functions as a normal print
+printf("%s\n", localMsg.constData());
+fflush(stdout);
+
+
+if (type == QtFatalMsg) {
+#ifdef Q_OS_WIN
+TerminateProcess(GetCurrentProcess(), 1);
+#else
+exit(1);
+#endif
+}
+}
+
 RING_FUNC(ring_start_qt6_gui) {
 if (RING_API_PARACOUNT == 1) {
 QString qtPath = QString(RING_API_GETSTRING(1));
+
+// Install the custom message handler before anything else
+qInstallMessageHandler(ring_qt_message_handler);
 
 QCoreApplication::addLibraryPath(qtPath + "/plugins");
 qputenv("QT_QPA_PLATFORM_PLUGIN_PATH", (qtPath + "/plugins/platforms").toUtf8());
@@ -80,11 +205,10 @@ qputenv("PATH", binPath.toUtf8() + currentPath);
 if (g_pRingState) {
 new QApplication(g_pRingState->nArgc, g_pRingState->pArgv);
 
-// Handle silent exit for Windows while keeping Android/Wasm native
 QObject::connect(qApp, &QCoreApplication::aboutToQuit, []() {
-
+#ifdef Q_OS_WIN
 TerminateProcess(GetCurrentProcess(), 0);
-
+#endif
 });
 
 ring_qt_start(g_pRingState);
@@ -97,6 +221,7 @@ RING_LIBINIT
 g_pRingState = pRingState;
 RING_API_REGISTER("start_qt6_gui", ring_start_qt6_gui);
 }
+
 }
 
 // Functions Prototype - Functions used to Free Memory 
