@@ -10,12 +10,12 @@ void setfinishedEvent(const char *)
 
 const char *getfinishedEvent(void)
 
-<filter> sysget("RINGQT_ANDROID") = ""
+<filter> sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_REQUIRED_VERSION") = "5"
 QNetworkConfiguration activeConfiguration(void)
 </filter>
 QAbstractNetworkCache *cache(void)
 void clearAccessCache(void)
-<filter> sysget("RINGQT_ANDROID") = ""
+<filter> sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_REQUIRED_VERSION") = "5"
 QNetworkConfiguration configuration(void)
 </filter>
 void connectToHost(QString, quint16)
@@ -26,7 +26,7 @@ QNetworkCookieJar *cookieJar(void)
 QNetworkReply *deleteResource(QNetworkRequest)
 QNetworkReply *get(QNetworkRequest) # In RingQt use : QNetworkReply *getvalue(QNetworkRequest)
 QNetworkReply *head(QNetworkRequest)
-<filter> sysget("RINGQT_ANDROID") = ""
+<filter> sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_REQUIRED_VERSION") = "5"
 QNetworkAccessManager::NetworkAccessibility networkAccessible(void)
 </filter>
 QNetworkReply *post(QNetworkRequest, QByteArray)
@@ -35,11 +35,11 @@ QNetworkProxyFactory *proxyFactory(void)
 QNetworkReply *put(QNetworkRequest, QByteArray) # In RingQt use : QNetworkReply *putvalue(QNetworkRequest, QByteArray)
 QNetworkReply *sendCustomRequest(QNetworkRequest, QByteArray, QIODevice *)
 void setCache(QAbstractNetworkCache *cache)
-<filter> sysget("RINGQT_ANDROID") = ""
+<filter> sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_REQUIRED_VERSION") = "5"
 void setConfiguration(QNetworkConfiguration)
 </filter>
 void setCookieJar(QNetworkCookieJar *cookieJar)
-<filter> sysget("RINGQT_ANDROID") = ""
+<filter> sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_REQUIRED_VERSION") = "5"
 void setNetworkAccessible(QNetworkAccessManager::NetworkAccessibility accessible)
 </filter>
 void setProxy(QNetworkProxy)
