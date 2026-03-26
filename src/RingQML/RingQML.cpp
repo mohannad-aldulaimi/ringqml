@@ -352,6 +352,33 @@
 	    if (item) QQmlEngine::setObjectOwnership(item, QQmlEngine::CppOwnership);
 	    return item;
 	}
+	const char* ringqml_readFileFromQRC(const char* filePath) {
+	    if (!filePath) return nullptr;
+	    QString path(filePath);
+	    path.remove('\"');
+	    path.remove('\'');
+	    // Qt Resource Files use strictly ':/' for QFile interactions
+	    if (path.startsWith("qrc:/")) {
+	        path.replace("qrc:/", ":/");
+	    } else if (!path.startsWith(":/")) {
+	        path = ":/" + path;
+	    }
+	    QFile file(path);
+	    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+	        qWarning() << "RingQML: Failed to open embedded Resource file:" << path;
+	        return nullptr;
+	    }
+	    QByteArray content = file.readAll();
+	    file.close();
+	    // Allocate memory and null terminate for Ring to capture
+	    char* result = (char*)malloc(content.size() + 1);
+	    if(result) {
+	        memcpy(result, content.constData(), content.size());
+	        result[content.size()] = '\0';
+	        return result;
+	    }
+	    return nullptr;
+	}
 	bool callQmlFunction(QQuickItem* rootItem, const char* functionName, const QVariantList& params) {
 	    if (!rootItem) return false;
 	    QVariant result;
@@ -859,6 +886,24 @@
 	    qml = RING_API_GETSTRING(2);
 	    RING_API_RETCPOINTER(loadQmlFromContentEngine(engine, qml), "QQuickItem");
 	}
+	RING_FUNC(ring_readfile_from_qrc) {
+	    const char* filePath;
+	    if (RING_API_PARACOUNT != 1) {
+	        RING_API_ERROR(RING_API_BADPARACOUNT);
+	        return;
+	    }
+	    if (!RING_API_ISSTRING(1)) {
+	        RING_API_ERROR(RING_API_BADPARATYPE);
+	        return;
+	    }
+	    filePath = RING_API_GETSTRING(1);
+	    const char* result = ringqml_readFileFromQRC(filePath);
+	    if (result) {
+	        RING_API_RETSTRING(result);
+	    } else {
+	        RING_API_RETSTRING("");
+	    }
+	}
 	RING_FUNC(ring_createNewComponent) {
 	    QQmlEngine* engine;
 	    char* name;
@@ -867,6 +912,7 @@
 	        RING_API_ERROR(RING_API_BADPARACOUNT);
 	        return;
 	    }
+	    RING_API_IGNORECPOINTERTYPE;
 	    if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2) || !RING_API_ISSTRING(3)) {
 	        RING_API_ERROR(RING_API_BADPARATYPE);
 	        return;
@@ -1047,6 +1093,7 @@
 	    RING_API_REGISTER("ringqml_loadfrom_qmlwidget", ring_loadQmlFromContentWidget);
 	    RING_API_REGISTER("ringqml_loadfrom_qmlview", ring_loadQmlFromContentView);
 	    RING_API_REGISTER("ringqml_loadfrom_qmlengin", ring_loadQmlFromContentEngine);
+	    RING_API_REGISTER("ringqml_readfile_from_qrc", ring_readfile_from_qrc);
 	    RING_API_REGISTER("ringqmlenginapp_new", ring_qmlEnginApp_new);
 	    RING_API_REGISTER("ringqmlcallqmlfunc", ring_callQMLFunc);
 	    RING_API_REGISTER("createnewcomponent", ring_createNewComponent);
