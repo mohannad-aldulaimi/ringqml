@@ -231,6 +231,40 @@ QQuickItem* createNewComponent(QQmlEngine* engine, const char* componentName, co
     return item;
 }
 
+const char* ringqml_readFileFromQRC(const char* filePath) {
+    if (!filePath) return nullptr;
+    
+    QString path(filePath);
+    path.remove('\"');
+    path.remove('\'');
+    
+    // Qt Resource Files use strictly ':/' for QFile interactions
+    if (path.startsWith("qrc:/")) {
+        path.replace("qrc:/", ":/");
+    } else if (!path.startsWith(":/")) {
+        path = ":/" + path;
+    }
+
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "RingQML: Failed to open embedded Resource file:" << path;
+        return nullptr;
+    }
+    
+    QByteArray content = file.readAll();
+    file.close();
+    
+    // Allocate memory and null terminate for Ring to capture
+    char* result = (char*)malloc(content.size() + 1);
+    if(result) {
+        memcpy(result, content.constData(), content.size());
+        result[content.size()] = '\0';
+        return result;
+    }
+    
+    return nullptr;
+}
+
 bool callQmlFunction(QQuickItem* rootItem, const char* functionName, const QVariantList& params) {
     if (!rootItem) return false;
     
